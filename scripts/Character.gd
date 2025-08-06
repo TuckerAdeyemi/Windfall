@@ -152,7 +152,6 @@ func level_up():
 		#var random_stat = stats[randi() % stats.size()]
 		#set(random_stat, get(random_stat) + randi() % 4 + 2)
 	
-	
 # Character.gd or similar
 
 #var equipped_armor: Armor = null
