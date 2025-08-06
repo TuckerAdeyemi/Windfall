@@ -35,7 +35,6 @@ class_name Character
 @export var res_growth: float = 1
 @export var luck_growth: float = 1
 @export var equipped_weapon: Weapon
-
 @export var title: String 
 
 # Internal growth accumulators (float)
