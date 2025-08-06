@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://piiavri67bxm"]
+
+[ext_resource type="AudioStream" uid="uid://cdawyry5j8dtj" path="res://music/battle.ogg" id="1_joyxc"]
+[ext_resource type="Resource" uid="uid://d3s2vmv53gfh2" path="res://scripts/ai/BasicAI.tres" id="1_qpjl4"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="2_6aq83"]
+[ext_resource type="Texture2D" uid="uid://ba4328khmnjii" path="res://assets/icons/dark.png" id="2_qxkpe"]
+
+[resource]
+script = ExtResource("2_6aq83")
+portrait = ExtResource("2_qxkpe")
+name = "Elven Rodent"
+level = 2
+hp = 20
+max_hp = 20
+mp = 5
+max_mp = 5
+str = 6
+mag = 1
+spd = 4
+def = 1
+res = 3
+luck = 1
+exp_given = 20
+money_total = 20
+sprite_path = "res://assets/sprites/enemy/windfall-first-monster.png"
+battle_theme = ExtResource("1_joyxc")
+is_player = false
+ai_script = ExtResource("1_qpjl4")
+elemental_weaknesses = {
+"Dark": 1.0,
+"Earth": 1.0,
+"Fire": 1.0,
+"Ice": 1.0,
+"Light": 1.0,
+"Lightning": 1.0,
+"Neutral": 1.0,
+"Time": 1.0,
+"Wind": 1.0
+}

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://2hokkjwcvagn"]
+
+[ext_resource type="Texture2D" uid="uid://b7xdsiwymv5m1" path="res://assets/icons/790c78d39fd853ae72167411aa11d727.png" id="1_0bd43"]
+
+[node name="TurnPointer" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("1_0bd43")
+flip_v = true

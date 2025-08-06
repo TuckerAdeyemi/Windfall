@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://k4i2v38k6ptu"]
+
+[ext_resource type="Texture2D" uid="uid://bfdv6aiyjcbmm" path="res://assets/portraits/Screenshot 2024-01-13 031344.png" id="1_5pfnr"]
+[ext_resource type="Resource" uid="uid://cyw1r2hvc3etq" path="res://items/weapons/iron_sword.tres" id="1_epxha"]
+[ext_resource type="Script" path="res://scripts/Character.gd" id="2_pqy2y"]
+[ext_resource type="Resource" uid="uid://bi7ei10bvgh83" path="res://resources/skills/spellset/FlynnSpells.tres" id="3_ea8vi"]
+
+[resource]
+script = ExtResource("2_pqy2y")
+portrait = ExtResource("1_5pfnr")
+name = "Flynn"
+level = 1
+hp = 150
+max_hp = 150
+mp = 20
+max_mp = 30
+exp = 0
+exp_to_next = 10
+exp_total = 0
+str = 3
+mag = 2
+spd = 2
+end = 3
+res = 2
+luck = 1
+sprite_path = "\"res://assets/portraits/goku-profile-e1616173641804-400x400.png\""
+spell_set = ExtResource("3_ea8vi")
+animation_frames_path = "res://resources/animations/flynn_sprite_frames.tres"
+is_player = true
+hp_growth = 1.632
+mp_growth = 1.23
+str_growth = 1.3
+mag_growth = 1.0
+spd_growth = 1.1
+end_growth = 1.4
+res_growth = 0.9
+luck_growth = 0.5
+equipped_weapon = ExtResource("1_epxha")
+title = "Prince of Windfall"

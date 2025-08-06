@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Magic" load_steps=3 format=3 uid="uid://c1cjhwgphjdu3"]
+
+[ext_resource type="Script" path="res://scripts/magic.gd" id="1_kplk6"]
+[ext_resource type="Texture2D" uid="uid://7e683fjvgr1r" path="res://assets/icons/ice.png" id="1_ovalt"]
+
+[resource]
+script = ExtResource("1_kplk6")
+element = "Ice"
+magic_type = "Grey"
+tier = 1
+icon = ExtResource("1_ovalt")
+name = "Aegis"
+description = "Increases the resistance of the target."
+power = 0
+cost = 16
+type = "Buff"
+status = Array[Dictionary]([{
+"chance": "",
+"scope": "",
+"type": ""
+}])

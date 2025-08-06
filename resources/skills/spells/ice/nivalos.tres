@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Magic" load_steps=3 format=3 uid="uid://bmdfm6jgfbot1"]
+
+[ext_resource type="Texture2D" uid="uid://7e683fjvgr1r" path="res://assets/icons/ice.png" id="1_i7p85"]
+[ext_resource type="Script" path="res://scripts/magic.gd" id="2_djn1e"]
+
+[resource]
+script = ExtResource("2_djn1e")
+element = "Ice"
+magic_type = "Black"
+tier = 3
+icon = ExtResource("1_i7p85")
+name = "Nivalos"
+description = "Deals heavy ice damage to the enemy."
+power = 150
+cost = 0
+type = "Damage"
+status = Array[Dictionary]([{
+"chance": "",
+"scope": "",
+"type": ""
+}])

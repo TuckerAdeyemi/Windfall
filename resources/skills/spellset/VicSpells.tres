@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SpellSet" load_steps=2 format=3 uid="uid://daydqe0681gj5"]
+
+[ext_resource type="Script" path="res://scripts/spellset.gd" id="1_2hmbo"]
+
+[resource]
+script = ExtResource("1_2hmbo")
+spells = {
+"Astraphos": 38,
+"Brontis": 19,
+"Empyros": 36,
+"Fulmen": 8,
+"Gaion": 20,
+"Ignis": 1,
+"Mortis": 13,
+"Pyra": 15,
+"Sanare": 23,
+"Seismoros": 40,
+"Terra": 10,
+"Thanatos": 41,
+"Vitalros": 43
+}

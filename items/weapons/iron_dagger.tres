@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://lmeu3851vy1b"]
+
+[ext_resource type="Script" path="res://scripts/Inventory/Weapon.gd" id="1_p2yet"]
+[ext_resource type="Texture2D" uid="uid://cgxl5dguy0gea" path="res://assets/icons/fc1441.png" id="1_s1hij"]
+
+[resource]
+script = ExtResource("1_p2yet")
+atk = 3
+hit_rate = 0.98
+crit_rate = 0.08
+weight = 1
+mag = 0
+rarity = "Common"
+attack_type = "Slash"
+element = "Neutral"
+sprite = ExtResource("1_s1hij")
+name = "Iron Dagger"
+icon = ExtResource("1_s1hij")
+description = "A simple light dagger made of iron."
+item_type = "Weapon"
+amount = 1

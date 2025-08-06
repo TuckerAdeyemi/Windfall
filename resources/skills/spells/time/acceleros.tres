@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Magic" load_steps=3 format=3 uid="uid://3jsf3eain2fc"]
+
+[ext_resource type="Script" path="res://scripts/magic.gd" id="1_03ky8"]
+[ext_resource type="Texture2D" uid="uid://cqsdantvcf36x" path="res://assets/icons/time.png" id="1_5oskc"]
+
+[resource]
+script = ExtResource("1_03ky8")
+element = "Time"
+magic_type = "Grey"
+tier = 2
+icon = ExtResource("1_5oskc")
+name = "Acceleros"
+description = "Increases the speed of everyone in the party."
+power = 0
+cost = 0
+type = "Buff"

@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://c4mjfp78w7ddc"]
+
+[ext_resource type="Resource" uid="uid://cypbt5iohakrm" path="res://items/weapons/iron_lance.tres" id="1_52ejm"]
+[ext_resource type="Texture2D" uid="uid://baouo1p2ij8wb" path="res://assets/portraits/E1TPBEhWEAQN22B.jpg" id="1_530os"]
+[ext_resource type="Script" path="res://scripts/Character.gd" id="2_42e81"]
+[ext_resource type="Resource" uid="uid://dldywbityt3" path="res://resources/skills/spellset/CaelithSpells.tres" id="4_7pdsi"]
+
+[resource]
+script = ExtResource("2_42e81")
+portrait = ExtResource("1_530os")
+name = "Caelith"
+level = 1
+hp = 180
+max_hp = 180
+mp = 15
+max_mp = 15
+exp = 0
+exp_to_next = 0
+exp_total = 0
+str = 2
+mag = 1
+spd = 2
+end = 3
+res = 2
+luck = 1
+sprite_path = ""
+spell_set = ExtResource("4_7pdsi")
+animation_frames_path = "res://resources/animations/marc_sprite_frames.tres"
+is_player = true
+hp_growth = 1.911
+mp_growth = 0.743
+str_growth = 1.42
+mag_growth = 0.81
+spd_growth = 1.02
+end_growth = 1.617
+res_growth = 1.111
+luck_growth = 0.23
+equipped_weapon = ExtResource("1_52ejm")
+title = "Prince of Eirwyn"

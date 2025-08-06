@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpellSet" load_steps=2 format=3 uid="uid://dldywbityt3"]
+
+[ext_resource type="Script" path="res://scripts/spellset.gd" id="1_xi1hd"]
+
+[resource]
+script = ExtResource("1_xi1hd")
+spells = {
+"Aegis": 20,
+"Bastionos": 45,
+"Crya": 17,
+"Fortis": 13,
+"Glacia": 3,
+"Nivalos": 33
+}

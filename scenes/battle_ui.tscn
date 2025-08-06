@@ -1,0 +1,123 @@
+[gd_scene load_steps=7 format=3 uid="uid://c6oxkqtsrp5hn"]
+
+[ext_resource type="Script" path="res://scripts/BattleUI.gd" id="1_36eer"]
+[ext_resource type="FontFile" uid="uid://cik2nboxfd7ah" path="res://fonts/Montserrat-Medium.ttf" id="2_kwa58"]
+[ext_resource type="Theme" uid="uid://qw4d15wvmg4m" path="res://fonts/idk.tres" id="3_rmn63"]
+[ext_resource type="PackedScene" uid="uid://mvq5ao6yjrua" path="res://scenes/battle/DamageNumber.tscn" id="4_e4g7m"]
+[ext_resource type="StyleBox" uid="uid://p28l7g10ihwi" path="res://scenes/uistyle.tres" id="4_suhd8"]
+[ext_resource type="AudioStream" uid="uid://breo6syvgrnfc" path="res://sfx/deck_ui_navigation.wav" id="5_vqlum"]
+
+[node name="BattleUI" type="CanvasLayer" node_paths=PackedStringArray("party_list", "enemy_list", "command_panel")]
+script = ExtResource("1_36eer")
+party_list = NodePath("PartyPanel/PartyList")
+enemy_list = NodePath("EnemyPanel/EnemyList")
+base_font = ExtResource("2_kwa58")
+command_panel = NodePath("CommandPanel")
+
+[node name="PartyPanel" type="Panel" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -800.0
+offset_top = -160.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("3_rmn63")
+theme_override_styles/panel = ExtResource("4_suhd8")
+
+[node name="PartyList" type="VBoxContainer" parent="PartyPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CommandPanel" type="Panel" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -160.0
+offset_right = 220.0
+grow_vertical = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CommandPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CommandList" type="VBoxContainer" parent="CommandPanel/ScrollContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="EnemyPanel" type="Panel" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -430.0
+offset_top = -160.0
+offset_right = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_rmn63")
+theme_override_styles/panel = ExtResource("4_suhd8")
+
+[node name="EnemyList" type="VBoxContainer" parent="EnemyPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MagicPanel" type="Panel" parent="."]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -160.0
+offset_right = 495.0
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("4_suhd8")
+
+[node name="MagicDisplay" type="VBoxContainer" parent="MagicPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Description" type="Label" parent="MagicPanel/MagicDisplay"]
+layout_mode = 2
+
+[node name="MagicGrid" type="GridContainer" parent="MagicPanel/MagicDisplay"]
+layout_mode = 2
+columns = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MagicPanel/MagicDisplay/MagicGrid"]
+stream = ExtResource("5_vqlum")
+volume_db = -7.764
+
+[node name="SkillPanel" type="Panel" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ItemPanel" type="Panel" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DamagePopUp" parent="." instance=ExtResource("4_e4g7m")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_vqlum")
+volume_db = -7.764

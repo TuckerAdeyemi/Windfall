@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://chuac4i5nqt0s"]
+
+[ext_resource type="Script" path="res://battle/TurnQueueUI.gd" id="1_lly7b"]
+
+[node name="TurnQueueUI" type="Control" node_paths=PackedStringArray("queue_box", "portrait_template")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 500.0
+offset_bottom = 55.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_lly7b")
+queue_box = NodePath("QueueBox")
+portrait_template = NodePath("QueueBox/PortraitTemplate")
+
+[node name="QueueBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PortraitTemplate" type="TextureRect" parent="QueueBox"]
+visible = false
+layout_mode = 2
+expand_mode = 2

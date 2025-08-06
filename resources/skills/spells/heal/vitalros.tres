@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Magic" load_steps=4 format=3 uid="uid://c1m3dkmdgjlvk"]
+
+[ext_resource type="Texture2D" uid="uid://do4xpqyg0spts" path="res://assets/icons/light.png" id="1_5qd8d"]
+[ext_resource type="Script" path="res://scripts/magic.gd" id="1_sdw7v"]
+[ext_resource type="AudioStream" uid="uid://b1gv0dicvkal5" path="res://sfx/084373_heal-36672.mp3" id="3_tb2k0"]
+
+[resource]
+script = ExtResource("1_sdw7v")
+element = "Light"
+magic_type = "White"
+tier = 3
+icon = ExtResource("1_5qd8d")
+name = "Vitalros"
+description = "Heals a large amount of HP to the target."
+power = 69
+cost = 30
+type = "Heal"
+sound_effect = ExtResource("3_tb2k0")
+status = Array[Dictionary]([{
+"chance": "",
+"scope": "",
+"type": ""
+}])

@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bb8opysc5sk66"]
+
+[ext_resource type="Shader" path="res://assets/animations/dissolve_shader.gdshader" id="1_6guew"]
+[ext_resource type="Texture2D" uid="uid://cayd8u10rdk38" path="res://assets/unnamed.jpg" id="2_a7mfn"]
+
+[resource]
+shader = ExtResource("1_6guew")
+shader_parameter/cutoff = 0.0
+shader_parameter/edge_width = 0.05
+shader_parameter/edge_color = Vector4(1, 1, 1, 1)
+shader_parameter/noise_tex = ExtResource("2_a7mfn")

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Magic" load_steps=3 format=3 uid="uid://cqjveoweohqmq"]
+
+[ext_resource type="Texture2D" uid="uid://bat22c430ovec" path="res://assets/icons/earth.png" id="1_4c3bo"]
+[ext_resource type="Script" path="res://scripts/magic.gd" id="2_nd3vh"]
+
+[resource]
+script = ExtResource("2_nd3vh")
+element = "Earth"
+magic_type = "Black"
+tier = 1
+icon = ExtResource("1_4c3bo")
+name = "Terra"
+description = "Deals light earth damage to the enemy."
+power = 0
+cost = 0
+type = "Damage"
+status = Array[Dictionary]([{
+"chance": "",
+"scope": "",
+"type": ""
+}])

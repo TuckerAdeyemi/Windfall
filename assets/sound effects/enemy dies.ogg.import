@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cnpq3pqug7rwu"
+path="res://.godot/imported/enemy dies.ogg-9f4807085bca5713bbd11158fc601c3b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sound effects/enemy dies.ogg"
+dest_files=["res://.godot/imported/enemy dies.ogg-9f4807085bca5713bbd11158fc601c3b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

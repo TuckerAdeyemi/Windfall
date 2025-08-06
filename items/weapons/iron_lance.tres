@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://cypbt5iohakrm"]
+
+[ext_resource type="Script" path="res://scripts/Inventory/Weapon.gd" id="1_neore"]
+
+[resource]
+script = ExtResource("1_neore")
+atk = 8
+hit_rate = 0.95
+crit_rate = 0.05
+weight = 2
+mag = 0
+rarity = "Common"
+attack_type = "Pierce"
+element = "Neutral"
+name = "Iron Lance"
+description = ""
+item_type = ""
+amount = 0

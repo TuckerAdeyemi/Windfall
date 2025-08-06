@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Magic" load_steps=3 format=3 uid="uid://bofccmdj0diat"]
+
+[ext_resource type="Texture2D" uid="uid://cqsdantvcf36x" path="res://assets/icons/time.png" id="1_2644i"]
+[ext_resource type="Script" path="res://scripts/magic.gd" id="1_bemt7"]
+
+[resource]
+script = ExtResource("1_bemt7")
+element = "Time"
+magic_type = "Grey"
+tier = 1
+icon = ExtResource("1_2644i")
+name = "Moratos"
+description = "Has a chance to stop the target."
+power = 0
+cost = 0
+type = "Debuff"

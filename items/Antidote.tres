@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Consumable" load_steps=3 format=3 uid="uid://b5epmw6j8a1am"]
+
+[ext_resource type="Script" path="res://scripts/Inventory/Consumable.gd" id="1_4pafw"]
+[ext_resource type="Texture2D" uid="uid://mlq0f6c5rpfg" path="res://assets/icons/fc123.png" id="1_xi55n"]
+
+[resource]
+script = ExtResource("1_4pafw")
+heal_amount = 0
+gives_exp = 0
+removes_poison = true
+name = "Antidote"
+icon = ExtResource("1_xi55n")
+description = "Removes poison status."
+item_type = "Consumable"
+amount = 2

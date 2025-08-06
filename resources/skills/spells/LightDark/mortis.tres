@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Magic" load_steps=3 format=3 uid="uid://co20ggsnu1env"]
+
+[ext_resource type="Texture2D" uid="uid://ba4328khmnjii" path="res://assets/icons/dark.png" id="1_8hckv"]
+[ext_resource type="Script" path="res://scripts/magic.gd" id="1_h4iw0"]
+
+[resource]
+script = ExtResource("1_h4iw0")
+element = "Dark"
+magic_type = "Black"
+tier = 1
+icon = ExtResource("1_8hckv")
+name = "Mortis"
+description = "Calls upon dark energy within to deal damage to the target."
+power = 0
+cost = 13
+type = "Damage"
+status = Array[Dictionary]([{
+"chance": "",
+"scope": "",
+"type": ""
+}])

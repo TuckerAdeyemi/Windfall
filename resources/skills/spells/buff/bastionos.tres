@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Magic" load_steps=3 format=3 uid="uid://bsrrdp55tguhv"]
+
+[ext_resource type="Texture2D" uid="uid://7e683fjvgr1r" path="res://assets/icons/ice.png" id="1_11ois"]
+[ext_resource type="Script" path="res://scripts/magic.gd" id="1_ytgaa"]
+
+[resource]
+script = ExtResource("1_ytgaa")
+element = "Ice"
+magic_type = "Grey"
+tier = 2
+icon = ExtResource("1_11ois")
+name = "Bastionos"
+description = "Increases the endurance, and resistance of the target."
+power = 0
+cost = 39
+type = "Buff"
+status = Array[Dictionary]([{
+"chance": "",
+"scope": "",
+"type": ""
+}, {}])

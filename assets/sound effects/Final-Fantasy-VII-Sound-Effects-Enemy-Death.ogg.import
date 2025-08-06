@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ppgef7r0lj4b"
+path="res://.godot/imported/Final-Fantasy-VII-Sound-Effects-Enemy-Death.ogg-d08a355072bd54ee9848caf7876c3553.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sound effects/Final-Fantasy-VII-Sound-Effects-Enemy-Death.ogg"
+dest_files=["res://.godot/imported/Final-Fantasy-VII-Sound-Effects-Enemy-Death.ogg-d08a355072bd54ee9848caf7876c3553.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

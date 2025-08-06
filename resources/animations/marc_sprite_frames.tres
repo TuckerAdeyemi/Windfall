@@ -1,0 +1,35 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://bcdlpb0bixt7l"]
+
+[ext_resource type="Texture2D" uid="uid://b10ryh3eet2ai" path="res://assets/sprites/White Mage.png" id="1_hxnbt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53eyv"]
+atlas = ExtResource("1_hxnbt")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8ff0"]
+atlas = ExtResource("1_hxnbt")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gj6tb"]
+atlas = ExtResource("1_hxnbt")
+region = Rect2(128, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53eyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8ff0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gj6tb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8ff0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Magic" load_steps=3 format=3 uid="uid://4dhy08pq8knh"]
+
+[ext_resource type="Texture2D" uid="uid://beyuauairwc2f" path="res://assets/icons/fc963.png" id="1_qhahu"]
+[ext_resource type="Script" path="res://scripts/magic.gd" id="2_2k5f2"]
+
+[resource]
+script = ExtResource("2_2k5f2")
+element = "Wind"
+magic_type = "Black"
+tier = 1
+icon = ExtResource("1_qhahu")
+name = "Aeris"
+description = "Deals light wind damage to the enemy."
+power = 15
+cost = 5
+type = "Damage"
+status = Array[Dictionary]([{
+"chance": "",
+"scope": "",
+"type": ""
+}])

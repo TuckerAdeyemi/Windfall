@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://ba2jrd0o0b4kd"]
+
+[ext_resource type="Script" path="res://scripts/Inventory/Weapon.gd" id="1_1w6ee"]
+
+[resource]
+script = ExtResource("1_1w6ee")
+atk = 1
+hit_rate = 1.0
+crit_rate = 0.0
+weight = 1
+mag = 3
+rarity = "Common"
+attack_type = "Blunt"
+element = "Neutral"
+name = "Iron Rod"
+description = ""
+item_type = ""
+amount = 0

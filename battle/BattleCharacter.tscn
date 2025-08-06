@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cerw1weueum5q"]
+
+[ext_resource type="Script" path="res://battle/BattleCharacter.gd" id="1_8pijq"]
+[ext_resource type="SpriteFrames" uid="uid://4w6bx8s0unr7" path="res://resources/animations/flynn_sprite_frames.tres" id="2_qy3tq"]
+[ext_resource type="Texture2D" uid="uid://b5vinosbomvgf" path="res://assets/portraits/goku-profile-e1616173641804-400x400.png" id="2_yoblo"]
+
+[node name="BattleCharacter" type="Node2D" node_paths=PackedStringArray("anim_sprite")]
+script = ExtResource("1_8pijq")
+anim_sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("2_qy3tq")
+animation = &"idle"
+frame_progress = 0.713031
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_yoblo")

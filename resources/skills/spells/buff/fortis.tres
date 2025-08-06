@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Magic" load_steps=3 format=3 uid="uid://dwhfxiwonjmn0"]
+
+[ext_resource type="Script" path="res://scripts/magic.gd" id="1_bd72a"]
+[ext_resource type="Texture2D" uid="uid://7e683fjvgr1r" path="res://assets/icons/ice.png" id="1_oiged"]
+
+[resource]
+script = ExtResource("1_bd72a")
+element = "Ice"
+magic_type = "Grey"
+tier = 1
+icon = ExtResource("1_oiged")
+name = "Fortis"
+description = "Increases the endurance of the target."
+power = 0
+cost = 10
+type = "Buff"
+status = Array[Dictionary]([{
+"chance": "",
+"scope": "",
+"type": ""
+}])

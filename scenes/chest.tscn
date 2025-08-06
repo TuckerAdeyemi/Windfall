@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://ci5ksv5yl2aqb"]
+
+[ext_resource type="Script" path="res://scripts/Chest.gd" id="1_rqcew"]
+[ext_resource type="Texture2D" uid="uid://dt7rnoifsafj0" path="res://assets/sprites/tile005.png" id="2_lnby3"]
+[ext_resource type="Texture2D" uid="uid://csjw158ufbj3p" path="res://assets/sprites/tile000.png" id="3_cdys1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i5yle"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8f2qa"]
+size = Vector2(20, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o05te"]
+
+[node name="Chest" type="StaticBody2D"]
+process_mode = 1
+z_index = 2
+position = Vector2(521, -279)
+physics_material_override = SubResource("PhysicsMaterial_i5yle")
+script = ExtResource("1_rqcew")
+
+[node name="open" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+texture = ExtResource("2_lnby3")
+
+[node name="closed" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("3_cdys1")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 3
+position = Vector2(0, 15.5)
+shape = SubResource("RectangleShape2D_8f2qa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 4
+shape = SubResource("RectangleShape2D_o05te")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

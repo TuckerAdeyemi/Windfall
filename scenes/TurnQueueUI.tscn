@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cny78oqfd7kwj"]
+
+[ext_resource type="Texture2D" uid="uid://ba4328khmnjii" path="res://assets/icons/dark.png" id="1_ssbp2"]
+
+[node name="TurnQueueUI" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("1_ssbp2")

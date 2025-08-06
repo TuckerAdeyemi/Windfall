@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://vtopk67rvn32"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_1hvvd"]
+[ext_resource type="AudioStream" uid="uid://cdawyry5j8dtj" path="res://music/battle.ogg" id="1_emx33"]
+[ext_resource type="Resource" uid="uid://d3s2vmv53gfh2" path="res://scripts/ai/BasicAI.tres" id="1_o2g0d"]
+[ext_resource type="Texture2D" uid="uid://ba4328khmnjii" path="res://assets/icons/dark.png" id="2_0taqg"]
+
+[resource]
+script = ExtResource("1_1hvvd")
+portrait = ExtResource("2_0taqg")
+name = "Slime"
+level = 2
+hp = 20
+max_hp = 20
+mp = 10
+max_mp = 10
+str = 200
+mag = 3
+spd = 1
+def = 20
+res = 1
+luck = 1
+exp_given = 20
+money_total = 30
+sprite_path = "res://assets/sprites/enemy/windfall-mon-slime-removebg-preview.png"
+battle_theme = ExtResource("1_emx33")
+is_player = false
+ai_script = ExtResource("1_o2g0d")
+elemental_weaknesses = {
+"Dark": 1.0,
+"Earth": 1.0,
+"Fire": 1.0,
+"Ice": 1.0,
+"Light": 1.0,
+"Lightning": 1.0,
+"Neutral": 1.0,
+"Time": 1.0,
+"Wind": 1.0
+}

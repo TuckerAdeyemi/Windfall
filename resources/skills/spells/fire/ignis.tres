@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Magic" load_steps=3 format=3 uid="uid://i2iscrl8ohep"]
+
+[ext_resource type="Texture2D" uid="uid://6xre110ynf1t" path="res://assets/icons/fire.png" id="1_50r5n"]
+[ext_resource type="Script" path="res://scripts/magic.gd" id="2_mk8kl"]
+
+[resource]
+script = ExtResource("2_mk8kl")
+element = "Fire"
+magic_type = "Black"
+tier = 1
+icon = ExtResource("1_50r5n")
+name = "Ignis"
+description = "Deals light fire damage to the enemy."
+power = 0
+cost = 5
+type = "Damage"

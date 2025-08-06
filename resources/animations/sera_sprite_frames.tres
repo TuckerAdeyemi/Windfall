@@ -1,0 +1,35 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://bcl3qq2m63wjw"]
+
+[ext_resource type="Texture2D" uid="uid://bjmxuvlb3h6ie" path="res://assets/sprites/theif.png" id="1_7xfpu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plwke"]
+atlas = ExtResource("1_7xfpu")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yytpl"]
+atlas = ExtResource("1_7xfpu")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g16j4"]
+atlas = ExtResource("1_7xfpu")
+region = Rect2(128, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plwke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yytpl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g16j4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yytpl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
