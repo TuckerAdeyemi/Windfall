@@ -1,6 +1,5 @@
 extends Node2D
 
-
 @onready var pause_menu = $PauseMenu
 @onready var time_display = $PauseMenu/Panel/TimeLabel # Reference to the label showing the time
 #@onready var player = get_node("Player")
