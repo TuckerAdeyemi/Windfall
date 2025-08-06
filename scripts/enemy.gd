@@ -18,6 +18,7 @@ class_name Enemy
 @export var exp_given: int
 @export var money_total: int
 #@export var items_given: int
+
 @export_file("*.png") var sprite_path: String = "res://assets/sprites/enemy/windfall-mon-slime-removebg-preview.png"
 @export var battle_theme : AudioStreamOggVorbis = preload("res://music/battle.ogg")
 @export var is_player: bool = false

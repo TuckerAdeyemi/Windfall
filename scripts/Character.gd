@@ -37,6 +37,8 @@ class_name Character
 @export var equipped_weapon: Weapon
 @export var title: String 
 
+#test
+
 # Internal growth accumulators (float)
 var str_accum: float = 0.0
 var mag_accum: float = 0.0
@@ -88,8 +90,6 @@ func get_learned_spells() -> Array[Magic]:
 		return a_type < b_type
 		)
 	return learned
-	
-
 
 func get_req_exp(lvl: int) -> int:
 	return round(pow(lvl, 2.7) + lvl * 4)

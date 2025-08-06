@@ -29,7 +29,6 @@ func run_ai(battle_manager: Node):
 	
 	await character_data.ai_script.take_turn(character_data, battle_manager.party_nodes, battle_manager)
 	
-	
 	return
 
 func die():
