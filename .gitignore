@@ -1,19 +1,2 @@
 # Godot 4+ specific ignores
 .godot/
-
-# Ignore Godot's imported files
-.import/
-
-# Ignore export settings (optional but safe to exclude)
-export.cfg
-export_presets.cfg
-
-# Temporary Godot files
-*.godot/tmp/
-
-# OS-generated files (don't need these in your repo)
-.DS_Store
-Thumbs.db
-
-# Optional: ignore build outputs
-bin/

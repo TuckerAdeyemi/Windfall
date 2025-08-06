@@ -90,7 +90,6 @@ func update_playtime_display():
 	var seconds = int(total_game_time) % 60
 	#time_display.text = "Play Time: %02d:%02d" % [minutes, seconds]
 	
-	
 #opens the pause menu, except in battles where it is disabled. Will modify later to be more general.
 func _unhandled_input(event):
 	if event.is_action_pressed("Enter") and !(is_game_paused) and !(battle):
