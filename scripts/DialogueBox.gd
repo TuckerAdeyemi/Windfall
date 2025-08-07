@@ -1,4 +1,3 @@
-
 extends CanvasLayer
 
 @onready var dialogue_text = $Panel/DialogueText

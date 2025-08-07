@@ -5,10 +5,16 @@ extends Node2D
 #@onready var player = get_node("Player")
 
 var party: Array[Character] = []
+var loader = DialogueLoader
+
 
 func _ready():
 	pause_menu.visible = false
 	GameManage.location = "Windfall Forest"
+	
+
+	DialogueLoader.load_twison("res://dialouge/test.json")
+
 	
 	var player = get_node_or_null("Player")
 	if player and GameManage.player_start_position:
@@ -24,6 +30,12 @@ func _ready():
 	#var screen_size = get_viewport().get_visible_rect().size
 	#var scale = Vector2(screen_size) / base_resolution  # Convert to Vector2 first
 	#$PauseMenu/Panel/HBox.scale = scale
+	
+func _unhandled_input(event):
+	if event.is_action_pressed("Die"):
+		print("fuck")
+		$DialogueBox.start_twison_dialogue(loader.passages, loader.start_pid)
+
 
 
 

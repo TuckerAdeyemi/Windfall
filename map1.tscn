@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://djtlfxnf7mml0"]
+[gd_scene load_steps=40 format=3 uid="uid://djtlfxnf7mml0"]
 
 [ext_resource type="Script" path="res://scripts/map1.gd" id="1_3upl8"]
 [ext_resource type="Texture2D" uid="uid://dqsam2nwmpcte" path="res://tilesets/summer forest.png" id="2_8h5eg"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bld4ema1nu26s" path="res://tilesets/Fantasy_Walls.png" id="10_n8pok"]
 [ext_resource type="PackedScene" uid="uid://ci5ksv5yl2aqb" path="res://scenes/chest.tscn" id="20_ednbn"]
 [ext_resource type="AudioStream" uid="uid://qdngs16m26hr" path="res://music/mus_ruins.ogg" id="20_jod3k"]
+[ext_resource type="PackedScene" uid="uid://088flvsn8pug" path="res://scenes/DialogueBox.tscn" id="22_fgdmh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sv6q8"]
 texture = ExtResource("2_8h5eg")
@@ -8432,3 +8433,5 @@ scale = Vector2(0.64, 0.64)
 stream = ExtResource("20_jod3k")
 volume_db = -7.38
 autoplay = true
+
+[node name="DialogueBox" parent="." instance=ExtResource("22_fgdmh")]

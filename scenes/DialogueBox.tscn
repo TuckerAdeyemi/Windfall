@@ -1,3 +1,34 @@
-[gd_scene format=3 uid="uid://088flvsn8pug"]
+[gd_scene load_steps=2 format=3 uid="uid://088flvsn8pug"]
 
-[node name="DialogueBox" type="Node2D"]
+[ext_resource type="Script" path="res://scripts/DialogueBox.gd" id="1_rg1h5"]
+
+[node name="DialogueBox" type="CanvasLayer"]
+script = ExtResource("1_rg1h5")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_right = 1300.0
+grow_vertical = 0
+
+[node name="Portrait" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NameLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="DialogueText" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ChoiceBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
