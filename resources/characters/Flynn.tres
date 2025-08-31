@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://k4i2v38k6ptu"]
 
-[ext_resource type="Texture2D" uid="uid://bfdv6aiyjcbmm" path="res://assets/portraits/Screenshot 2024-01-13 031344.png" id="1_5pfnr"]
 [ext_resource type="Resource" uid="uid://cyw1r2hvc3etq" path="res://items/weapons/iron_sword.tres" id="1_epxha"]
-[ext_resource type="Script" path="res://scripts/Character.gd" id="2_pqy2y"]
+[ext_resource type="Texture2D" uid="uid://bfdv6aiyjcbmm" path="res://assets/portraits/Screenshot 2024-01-13 031344.png" id="2_48dtc"]
+[ext_resource type="Script" uid="uid://nydcb2tus73c" path="res://scripts/Character.gd" id="2_pqy2y"]
 [ext_resource type="Resource" uid="uid://bi7ei10bvgh83" path="res://resources/skills/spellset/FlynnSpells.tres" id="3_ea8vi"]
 
 [resource]
 script = ExtResource("2_pqy2y")
-portrait = ExtResource("1_5pfnr")
+portrait = ExtResource("2_48dtc")
 name = "Flynn"
 level = 1
 hp = 150

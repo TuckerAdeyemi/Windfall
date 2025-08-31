@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://cypbt5iohakrm" path="res://items/weapons/iron_lance.tres" id="1_52ejm"]
 [ext_resource type="Texture2D" uid="uid://baouo1p2ij8wb" path="res://assets/portraits/E1TPBEhWEAQN22B.jpg" id="1_530os"]
-[ext_resource type="Script" path="res://scripts/Character.gd" id="2_42e81"]
+[ext_resource type="Script" uid="uid://nydcb2tus73c" path="res://scripts/Character.gd" id="2_42e81"]
 [ext_resource type="Resource" uid="uid://dldywbityt3" path="res://resources/skills/spellset/CaelithSpells.tres" id="4_7pdsi"]
 
 [resource]

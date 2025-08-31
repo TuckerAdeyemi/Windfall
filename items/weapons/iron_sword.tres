@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://cyw1r2hvc3etq"]
 
-[ext_resource type="Script" path="res://scripts/Inventory/Weapon.gd" id="1_0cvv3"]
+[ext_resource type="Script" uid="uid://yxjoxkp2xaui" path="res://scripts/Inventory/Weapon.gd" id="1_0cvv3"]
 [ext_resource type="Texture2D" uid="uid://bs3iooy3efpb1" path="res://assets/icons/fc1449.png" id="1_qde1v"]
 
 [resource]

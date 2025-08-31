@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b1r1hcbu6gbbw"]
 
-[ext_resource type="Script" path="res://battle/EnemySpawn.gd" id="1_4vuqp"]
+[ext_resource type="Script" uid="uid://dyunkpm2qgnlf" path="res://battle/EnemySpawn.gd" id="1_4vuqp"]
 [ext_resource type="Texture2D" uid="uid://bhtbkbncaxbn0" path="res://assets/sprites/enemy/windfall-mon-slime-removebg-preview.png" id="2_m7253"]
 [ext_resource type="Material" uid="uid://bb8opysc5sk66" path="res://assets/animations/animationdeath.tres" id="2_rypa5"]
 [ext_resource type="AudioStream" uid="uid://cnpq3pqug7rwu" path="res://assets/sound effects/enemy dies.ogg" id="4_qu4me"]

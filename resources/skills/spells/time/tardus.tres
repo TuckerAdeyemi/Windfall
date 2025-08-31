@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Magic" load_steps=3 format=3 uid="uid://cura6tavn2nuy"]
 
 [ext_resource type="Texture2D" uid="uid://cqsdantvcf36x" path="res://assets/icons/time.png" id="1_0m5yh"]
-[ext_resource type="Script" path="res://scripts/magic.gd" id="1_0vm3q"]
+[ext_resource type="Script" uid="uid://epd1k20tycu8" path="res://scripts/magic.gd" id="1_0vm3q"]
 
 [resource]
 script = ExtResource("1_0vm3q")
@@ -14,3 +14,8 @@ description = "Decreases the speed of the target."
 power = 0
 cost = 0
 type = "Debuff"
+status = Array[Dictionary]([{
+"chance": "",
+"scope": "",
+"type": ""
+}])

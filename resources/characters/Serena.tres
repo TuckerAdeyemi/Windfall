@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://b6852uwsch363"]
 
-[ext_resource type="Script" path="res://scripts/Character.gd" id="1_5myrr"]
+[ext_resource type="Script" uid="uid://nydcb2tus73c" path="res://scripts/Character.gd" id="1_5myrr"]
 [ext_resource type="Resource" uid="uid://lmeu3851vy1b" path="res://items/weapons/iron_dagger.tres" id="1_pqbuk"]
-[ext_resource type="Texture2D" uid="uid://c71tv21edqqlb" path="res://assets/portraits/Screenshot 2024-01-13 031317.png" id="1_rml4s"]
+[ext_resource type="Texture2D" uid="uid://c71tv21edqqlb" path="res://assets/portraits/Screenshot 2024-01-13 031317.png" id="2_bww45"]
 [ext_resource type="Resource" uid="uid://22gqh5362pw7" path="res://resources/skills/spellset/SeraSpells.tres" id="3_kd1i5"]
 
 [resource]
 script = ExtResource("1_5myrr")
-portrait = ExtResource("1_rml4s")
+portrait = ExtResource("2_bww45")
 name = "Serena"
 level = 1
 hp = 120

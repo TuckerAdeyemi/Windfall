@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bq4mheqvybeif"]
 
-[ext_resource type="Script" path="res://scripts/PauseMenu.gd" id="1_ks1q4"]
-[ext_resource type="Script" path="res://scripts/PartyDisplay.gd" id="2_cvqqf"]
+[ext_resource type="Script" uid="uid://b4of5k4hi7dw6" path="res://scripts/PauseMenu.gd" id="1_ks1q4"]
+[ext_resource type="Script" uid="uid://rsxhmrief43d" path="res://scripts/PartyDisplay.gd" id="2_cvqqf"]
 [ext_resource type="FontFile" uid="uid://d0uyjc1djjwtt" path="res://fonts/Runic MT Std Condensed.otf" id="3_yckrg"]
 [ext_resource type="AudioStream" uid="uid://breo6syvgrnfc" path="res://sfx/deck_ui_navigation.wav" id="4_ee12q"]
-[ext_resource type="Script" path="res://InventoryUI.gd" id="5_w3v34"]
+[ext_resource type="Script" uid="uid://co3f42s6grcsv" path="res://InventoryUI.gd" id="5_w3v34"]
 [ext_resource type="Texture2D" uid="uid://b2gqpdna6r5oi" path="res://assets/portraits/Screenshot 2025-07-03 040158.png" id="6_pjp84"]
 [ext_resource type="PackedScene" uid="uid://cin4x62obt3ul" path="res://scenes/items/inventory_slot.tscn" id="6_pli7a"]
 

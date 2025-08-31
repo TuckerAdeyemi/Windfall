@@ -1,15 +1,17 @@
 [gd_resource type="Resource" script_class="Magic" load_steps=4 format=3 uid="uid://bdtj4gdyl4gfx"]
 
-[ext_resource type="Script" path="res://scripts/magic.gd" id="1_lhy44"]
-[ext_resource type="Texture2D" uid="uid://jao40ytfqp0h" path="res://assets/icons/fc1045.png" id="1_lsjts"]
+[ext_resource type="Script" uid="uid://epd1k20tycu8" path="res://scripts/magic.gd" id="1_lhy44"]
 [ext_resource type="AudioStream" uid="uid://b1gv0dicvkal5" path="res://sfx/084373_heal-36672.mp3" id="3_ldv16"]
+
+[sub_resource type="Resource" id="Resource_77d7y"]
+metadata/__load_path__ = "res://assets/icons/fc1045.png"
 
 [resource]
 script = ExtResource("1_lhy44")
 element = "Light"
 magic_type = "White"
 tier = 2
-icon = ExtResource("1_lsjts")
+icon = SubResource("Resource_77d7y")
 name = "Sanare"
 description = "Heals a medium amount of HP to the target."
 power = 41

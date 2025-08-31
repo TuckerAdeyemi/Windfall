@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://vtopk67rvn32"]
 
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_1hvvd"]
+[ext_resource type="Script" uid="uid://c6wopjwnia1a" path="res://scripts/enemy.gd" id="1_1hvvd"]
 [ext_resource type="AudioStream" uid="uid://cdawyry5j8dtj" path="res://music/battle.ogg" id="1_emx33"]
 [ext_resource type="Resource" uid="uid://d3s2vmv53gfh2" path="res://scripts/ai/BasicAI.tres" id="1_o2g0d"]
 [ext_resource type="Texture2D" uid="uid://ba4328khmnjii" path="res://assets/icons/dark.png" id="2_0taqg"]

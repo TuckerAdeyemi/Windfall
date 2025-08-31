@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://ba2jrd0o0b4kd" path="res://items/weapons/iron_rod.tres" id="1_jogg7"]
 [ext_resource type="Texture2D" uid="uid://b2gqpdna6r5oi" path="res://assets/portraits/Screenshot 2025-07-03 040158.png" id="1_t2icf"]
-[ext_resource type="Script" path="res://scripts/Character.gd" id="2_joa1i"]
+[ext_resource type="Script" uid="uid://nydcb2tus73c" path="res://scripts/Character.gd" id="2_joa1i"]
 [ext_resource type="Resource" uid="uid://daydqe0681gj5" path="res://resources/skills/spellset/VicSpells.tres" id="3_ws0v5"]
 
 [resource]

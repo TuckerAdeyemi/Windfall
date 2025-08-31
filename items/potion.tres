@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Consumable" load_steps=3 format=3 uid="uid://j8wuh1ctxonr"]
 
 [ext_resource type="Texture2D" uid="uid://cfvudvy3pvxpu" path="res://assets/icons/fc959.png" id="1_vpgvb"]
-[ext_resource type="Script" path="res://scripts/Inventory/Consumable.gd" id="2_hwiv8"]
+[ext_resource type="Script" uid="uid://clsjaowk5oocw" path="res://scripts/Inventory/Consumable.gd" id="2_hwiv8"]
 
 [resource]
 script = ExtResource("2_hwiv8")

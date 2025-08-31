@@ -1,14 +1,16 @@
 [gd_resource type="Resource" script_class="Magic" load_steps=3 format=3 uid="uid://cs7cjrmfneuth"]
 
-[ext_resource type="Texture2D" uid="uid://beyuauairwc2f" path="res://assets/icons/fc963.png" id="1_0pymj"]
-[ext_resource type="Script" path="res://scripts/magic.gd" id="2_suoxb"]
+[ext_resource type="Script" uid="uid://epd1k20tycu8" path="res://scripts/magic.gd" id="2_suoxb"]
+
+[sub_resource type="Resource" id="Resource_eycvb"]
+metadata/__load_path__ = "res://assets/icons/fc963.png"
 
 [resource]
 script = ExtResource("2_suoxb")
 element = "Wind"
 magic_type = "Black"
 tier = 2
-icon = ExtResource("1_0pymj")
+icon = SubResource("Resource_eycvb")
 name = "Ventus"
 description = "Deals medium wind damage to the enemy."
 power = 48

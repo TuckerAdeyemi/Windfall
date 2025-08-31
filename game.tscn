@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cnokn3ah8vkvo"]
 
-[ext_resource type="Script" path="res://scripts/Test.gd" id="1_di8xy"]
-[ext_resource type="Script" path="res://scripts/Character.gd" id="2_03ofo"]
+[ext_resource type="Script" uid="uid://dbsox4uvijrpa" path="res://scripts/Test.gd" id="1_di8xy"]
+[ext_resource type="Script" uid="uid://nydcb2tus73c" path="res://scripts/Character.gd" id="2_03ofo"]
 [ext_resource type="FontFile" uid="uid://d0uyjc1djjwtt" path="res://fonts/Runic MT Std Condensed.otf" id="3_d01xi"]
-[ext_resource type="Script" path="res://scripts/Label.gd" id="4_vv3tc"]
+[ext_resource type="Script" uid="uid://dkqqdvilboplc" path="res://scripts/Label.gd" id="4_vv3tc"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_di8xy")

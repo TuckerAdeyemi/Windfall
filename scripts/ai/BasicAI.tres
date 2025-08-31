@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BasicAI" load_steps=2 format=3 uid="uid://d3s2vmv53gfh2"]
 
-[ext_resource type="Script" path="res://scripts/ai/BasicAI.gd" id="1_v3vpa"]
+[ext_resource type="Script" uid="uid://bv3wnb1uv1lra" path="res://scripts/ai/BasicAI.gd" id="1_v3vpa"]
 
 [resource]
 script = ExtResource("1_v3vpa")

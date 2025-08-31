@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c6oxkqtsrp5hn"]
 
-[ext_resource type="Script" path="res://scripts/BattleUI.gd" id="1_36eer"]
+[ext_resource type="Script" uid="uid://wljalj84k8m1" path="res://scripts/BattleUI.gd" id="1_36eer"]
 [ext_resource type="FontFile" uid="uid://cik2nboxfd7ah" path="res://fonts/Montserrat-Medium.ttf" id="2_kwa58"]
 [ext_resource type="Theme" uid="uid://qw4d15wvmg4m" path="res://fonts/idk.tres" id="3_rmn63"]
 [ext_resource type="PackedScene" uid="uid://mvq5ao6yjrua" path="res://scenes/battle/DamageNumber.tscn" id="4_e4g7m"]

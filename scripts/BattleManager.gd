@@ -270,4 +270,3 @@ func basic_attack(attacker, target) -> void:
 	battle_ui.show_damage_number(target.global_position + Vector2(0, -80), final_damage)
 
 	target.character_data.hp -= final_damage
-
