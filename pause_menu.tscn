@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bq4mheqvybeif"]
+[gd_scene load_steps=9 format=3 uid="uid://bq4mheqvybeif"]
 
 [ext_resource type="Script" uid="uid://b4of5k4hi7dw6" path="res://scripts/PauseMenu.gd" id="1_ks1q4"]
 [ext_resource type="Script" uid="uid://rsxhmrief43d" path="res://scripts/PartyDisplay.gd" id="2_cvqqf"]
 [ext_resource type="FontFile" uid="uid://d0uyjc1djjwtt" path="res://fonts/Runic MT Std Condensed.otf" id="3_yckrg"]
 [ext_resource type="AudioStream" uid="uid://breo6syvgrnfc" path="res://sfx/deck_ui_navigation.wav" id="4_ee12q"]
+[ext_resource type="FontFile" uid="uid://b83elnrrwpif7" path="res://fonts/Sprintura Demo.otf" id="5_e8sti"]
 [ext_resource type="Script" uid="uid://co3f42s6grcsv" path="res://InventoryUI.gd" id="5_w3v34"]
 [ext_resource type="Texture2D" uid="uid://b2gqpdna6r5oi" path="res://assets/portraits/Screenshot 2025-07-03 040158.png" id="6_pjp84"]
 [ext_resource type="PackedScene" uid="uid://cin4x62obt3ul" path="res://scenes/items/inventory_slot.tscn" id="6_pli7a"]
@@ -89,42 +90,50 @@ focus_mode = 2
 custom_minimum_size = Vector2(400, 0)
 layout_direction = 1
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_e8sti")
 theme_override_font_sizes/font_size = 40
 text = "Items"
 
 [node name="Magic" type="Button" parent="Panel/HBox/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_e8sti")
 theme_override_font_sizes/font_size = 40
 text = "Magic"
 
 [node name="Equip" type="Button" parent="Panel/HBox/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_e8sti")
 theme_override_font_sizes/font_size = 40
 text = "Equip"
 
 [node name="Status" type="Button" parent="Panel/HBox/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_e8sti")
 theme_override_font_sizes/font_size = 40
 text = "Status"
 
 [node name="Quests" type="Button" parent="Panel/HBox/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_e8sti")
 theme_override_font_sizes/font_size = 40
 text = "Quests
 "
 
 [node name="Config" type="Button" parent="Panel/HBox/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_e8sti")
 theme_override_font_sizes/font_size = 40
 text = "Config"
 
 [node name="Save" type="Button" parent="Panel/HBox/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_e8sti")
 theme_override_font_sizes/font_size = 40
 text = "Save"
 
 [node name="Load" type="Button" parent="Panel/HBox/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_e8sti")
 theme_override_font_sizes/font_size = 40
 text = "Load"
 

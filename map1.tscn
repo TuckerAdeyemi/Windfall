@@ -3429,3 +3429,4 @@ volume_db = -7.38
 autoplay = true
 
 [node name="DialogueBox" parent="." instance=ExtResource("22_fgdmh")]
+visible = false

@@ -63,4 +63,3 @@ func _on_choice_pressed(target_name):
 			show_passage(current_pid)
 			return
 	print("Link target not found:", target_name)
-
