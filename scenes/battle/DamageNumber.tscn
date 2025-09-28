@@ -75,5 +75,5 @@ script = ExtResource("2_ssvbh")
 [node name="DamageAnimation" type="AnimationPlayer" parent="DamageNumber"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_lp7ji")
+&"": SubResource("AnimationLibrary_lp7ji")
 }

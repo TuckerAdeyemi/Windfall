@@ -14,8 +14,6 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	chest_zone = true
-	print(chest_zone)
 
 func _on_area_2d_body_exited(body):
 	chest_zone = false
-	print(chest_zone)

@@ -186,7 +186,7 @@ func populate_party_ui(party: Array, partynodes: Array, current_turn: int = -1):
 		var member = party[i]
 		var mem = partynodes[i]
 		var row = HBoxContainer.new()
-		row.add_theme_constant_override("separation", 10)  # Default spacing between all children
+		row.add_theme_constant_override("separation", 10) 
 
 		# Labels
 		var name_label = Label.new()
@@ -272,7 +272,7 @@ func populate_enemy_ui(enemies: Array):
 		row.set_meta("enemy_node", enemy)
 
 func prompt_player_action(battler) -> void:
-	print("Prompting action for ", battler.character_data.name)
+	#print("Prompting action for ", battler.character_data.name)
 	battler_backup = battler
 	# Show command panel and enable input
 	command_panel.visible = true
@@ -292,35 +292,19 @@ func prompt_player_action(battler) -> void:
 		# Show enemy targets and wait for selection
 		_show_enemy_target_selection()
 		var target = await target_chosen
-		if target is Resource:
-			print("%s attacks %s!" % [battler.character_data.name, target.name])
-			var truedamage = Math.attack(battler.character_data, target)
-			if truedamage < 0:
-				truedamage = 0
-			target.hp -= truedamage
-			var party_row = party_list.get_child(selected_party_index)
-			var party_resource = party_row.get_meta("party_node")
-			var party_node = party_row  # if party_row is your actual node representing that resource
-			show_damage_number(battler.global_position + Vector2(0, -80), truedamage)
-			print("It took %d damage! It's at %d HP now!"% [truedamage, target.hp])
-			populate_party_ui(GameManage.party, backuppnode)
-			if target.hp <= 0:
-				party_node.die()
-				on_enemy_death(target)
-				battle_manager.remove_dead_from_turn_queue()
-		else:
-			print("%s attacks %s!" % [battler.character_data.name, target.character_data.name])
-			var truedamage = Math.attack(battler.character_data, target.character_data)
-			if truedamage < 0:
-				truedamage = 0
-			target.character_data.hp -= truedamage
-			show_damage_number(target.global_position + Vector2(0, -80), truedamage)
-			print("It took %d damage! It's at %d HP now!"% [truedamage, target.character_data.hp])
-			populate_party_ui(GameManage.party, backuppnode)
-			if target.character_data.hp <= 0:
-				target.die()
-				on_enemy_death(target)
-				battle_manager.remove_dead_from_turn_queue()
+		print("%s attacks %s!" % [battler.character_data.name, target.character_data.name])
+		var truedamage = Math.attack(battler.character_data, target.character_data)
+		if truedamage < 0:
+			truedamage = 0
+		target.character_data.hp -= truedamage
+		show_damage_number(target.global_position + Vector2(0, -80), truedamage)
+		print("%s took %d damage! It's at %d HP now!"% [target.character_data.name, truedamage, target.character_data.hp])
+		populate_party_ui(GameManage.party, backuppnode)
+		if target.character_data.hp <= 0:
+			target.die()
+			on_enemy_death(target)
+			battle_manager.remove_dead_from_turn_queue()
+			
 	if command == "Magic":
 		print("%s is casting magic!" % battler.character_data.name)
 		display_spells(battler.character_data)
@@ -481,3 +465,25 @@ func display_spells(member: Character):
 		if first_button:
 			await get_tree().process_frame  # Wait one frame
 			first_button.grab_focus()
+
+"""
+Break if needed.
+		if target is Resource:
+			print("does this even get used?")
+			print("%s attacks %s!" % [battler.character_data.name, target.name])
+			var truedamage = Math.attack(battler.character_data, target)
+			if truedamage < 0:
+				truedamage = 0
+			target.hp -= truedamage
+			var party_row = party_list.get_child(selected_party_index)
+			var party_resource = party_row.get_meta("party_node")
+			var party_node = party_row
+			show_damage_number(battler.global_position + Vector2(0, -80), truedamage)
+			print("%s took %d damage! It's FUCK  at %d HP now!"% [target.name, truedamage, target.hp])
+			populate_party_ui(GameManage.party, backuppnode)
+			if target.hp <= 0:
+				party_node.die()
+				on_enemy_death(target)
+				battle_manager.remove_dead_from_turn_queue()
+		else:
+"""

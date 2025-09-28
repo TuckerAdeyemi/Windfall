@@ -35,12 +35,3 @@ func _unhandled_input(event):
 	if event.is_action_pressed("Die"):
 		print("fuck")
 		$DialogueBox.start_twison_dialogue(loader.passages, loader.start_pid)
-
-
-
-
-
-
-
-
-

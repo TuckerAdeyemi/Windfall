@@ -73,4 +73,3 @@ func _on_hitbox_body_entered(body):
 
 func _on_hitbox_body_exited(body):
 	return
-

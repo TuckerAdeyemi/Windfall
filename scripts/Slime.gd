@@ -3,18 +3,17 @@ extends EnemyBase
 func _process(delta):
 	if battle == true:
 		GameManage.battle = true
-		print("buns")
 		start_battle()
 		GameManage.battle = false
 	battle = false
 	
 func start_battle():
-	var slime = preload("res://resources/enemies/Slime.tres")
-	var rod = preload("res://resources/enemies/Elven_Rodent.tres")
+
 	GameManage.enemy_group = [
 		#slime.duplicate(),
-		slime.duplicate(),
-		rod.duplicate(),
+		EnemyPreloader.slime.duplicate(),
+		EnemyPreloader.rod.duplicate(),
+		EnemyPreloader.wolf.duplicate()
 		#slime.duplicate()
 		]
 	

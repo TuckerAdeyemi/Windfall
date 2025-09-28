@@ -22,8 +22,9 @@ class_name Character
 @export var spell_set: SpellSet
 @export var animation_frames_path := "res://resources/animations/flynn_sprite_frames.tres"
 @export var is_player: bool = true
+@export var pronouns: Array = ["He", "Him", "His"]
 
-
+@export var statuseffects : Array
 
 #unique growth rates for characters
 @export var hp_growth: float = 1
@@ -94,7 +95,6 @@ func get_req_exp(lvl: int) -> int:
 	
 static func grant_exp_to_party(amount: int):
 	for member in GameManage.party:
-		#Uncomment this if you later add an `is_dead` flag
 		if member.hp > 0:
 			member.gain_exp(amount)
 	
@@ -113,6 +113,8 @@ func level_up():
 	if level < 100:
 		level += 1
 		exp_to_next = get_req_exp(level)
+		if level == 100:
+			exp_to_next = 1
 
 		var stat_gain := 126.0 / 99.0  # ≈ 1.2857
 		
@@ -148,11 +150,7 @@ func level_up():
 		
 	
 		print(name, " leveled up to Lv", level, "!")
-		#var stats = ['max_hp', 'strength', 'magic']
-		#var random_stat = stats[randi() % stats.size()]
-		#set(random_stat, get(random_stat) + randi() % 4 + 2)
-	
-# Character.gd or similar
+
 
 #var equipped_armor: Armor = null
 
@@ -169,4 +167,3 @@ func equip_weapon(weapon: Weapon):
 #	res += armor.res_bonus
 #	spd += armor.spd_bonus
 	# handle immunities or elemental resists if needed
-

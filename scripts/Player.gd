@@ -3,12 +3,6 @@ extends CharacterBody2D
 var speed = 100
 var current_dir = "none"
 
-func _ready():
-	print("Player initialized")
-
-func _exit_tree():
-	print("Player destroyed")
-
 
 func _physics_process(delta):
 	player_movement(delta)

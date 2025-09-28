@@ -41,7 +41,7 @@ func calculate_damage(caster: Character, spell: Magic, target) -> int:
 			truedamage *= multiplier
 	
 	return truedamage
-
+	
 
 func attack(member: Character, target) -> int:
 	# === Base Damage Calculation ===
@@ -67,6 +67,6 @@ func attack(member: Character, target) -> int:
 	var crit_roll = randf()
 	if crit_roll < member.equipped_weapon.crit_rate:
 		print("Critical Hit!")
-		truedamage *= 1.5  # or 2.0, depending on your crit multiplier
+		truedamage *= 1.5
 		
 	return truedamage

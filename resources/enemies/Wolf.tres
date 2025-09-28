@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://bi3uofvkco6ac"]
+
+[ext_resource type="AudioStream" uid="uid://cdawyry5j8dtj" path="res://music/battle.ogg" id="1_2ecu5"]
+[ext_resource type="Resource" uid="uid://d3s2vmv53gfh2" path="res://scripts/ai/BasicAI.tres" id="1_4m2xr"]
+[ext_resource type="Texture2D" uid="uid://ba4328khmnjii" path="res://assets/icons/dark.png" id="2_4m2xr"]
+[ext_resource type="Script" uid="uid://c6wopjwnia1a" path="res://scripts/enemy.gd" id="2_8gxua"]
+
+[resource]
+script = ExtResource("2_8gxua")
+portrait = ExtResource("2_4m2xr")
+name = "Wolf"
+level = 3
+max_hp = 20
+hp = 20
+mp = 0
+max_mp = 0
+str = 0
+mag = 0
+spd = 0
+def = 0
+res = 0
+luck = 0
+exp_given = 0
+money_total = 0
+items_stealable = {
+"Nothing": 1
+}
+sprite_path = "uid://d1weldsmy88bd"
+battle_theme = ExtResource("1_2ecu5")
+is_player = false
+ai_script = ExtResource("1_4m2xr")
+elemental_weaknesses = {
+"Dark": 1.0,
+"Earth": 1.0,
+"Fire": 1.0,
+"Ice": 1.0,
+"Light": 1.0,
+"Lightning": 1.0,
+"Neutral": 1.0,
+"Time": 1.0,
+"Wind": 1.0
+}
+metadata/_custom_type_script = "uid://c6wopjwnia1a"

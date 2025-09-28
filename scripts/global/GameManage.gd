@@ -134,7 +134,7 @@ func toggle_pause_menu():
 	is_game_paused = !is_game_paused
 	get_tree().paused = is_game_paused
 	panel.visible = is_game_paused
-	add_child(pause_menu)
+	#add_child(pause_menu)
 	update_pause()
 	if is_game_paused:
 		pause_menu.show_party(party)
@@ -299,7 +299,3 @@ func load_game():
 	game_loaded = true
 
 	print("Game Loaded!")
-
-
-
-

@@ -156,10 +156,10 @@ func trigger_selected_button():
 	
 	if focused == button_items:
 		print("Items")
-		#Nventory.add_item(potion)
+		Nventory.add_item(potion)
 		#Nventory.add_item(ass)
-		#$InvenPanel/InventoryUI.update_inventory_display(Nventory)
-		#panel.visible = false
+		$InvenPanel/InventoryUI.update_inventory_display(Nventory)
+		panel.visible = false
 	elif focused == button_magic:
 		magic_panel.visible = true
 		display_spells()

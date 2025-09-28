@@ -466,3 +466,8 @@ volume_db = -7.764
 
 [node name="SoundEffects" type="AudioStreamPlayer" parent="."]
 volume_db = -0.915
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+animation = &""
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D"]

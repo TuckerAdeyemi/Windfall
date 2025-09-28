@@ -13,6 +13,7 @@ config_version=5
 config/name="WindfallGame"
 run/main_scene="res://map1.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/image="uid://boudtfcem8j6o"
 config/icon="res://icon.svg"
 
 [autoload]
@@ -22,6 +23,7 @@ Nventory="*res://scripts/Inventory/Nventory.gd"
 SpellDB="*res://scripts/global/spelldb.gd"
 Math="*res://scripts/global/Math.gd"
 DialogueLoader="*res://scripts/DialogueLoader.gd"
+EnemyPreloader="*res://scripts/EnemyPreloader.gd"
 
 [display]
 
