@@ -5,8 +5,8 @@ class_name Character
 @export var portrait: Texture
 @export var name: String
 @export var level: int = 1
-@export var hp: int = max_hp
 @export var max_hp: int = 150
+@export var hp: int = max_hp
 @export var mp: int = 30
 @export var max_mp: int = 30
 @export var exp: int
@@ -24,7 +24,7 @@ class_name Character
 @export var is_player: bool = true
 @export var pronouns: Array = ["He", "Him", "His"]
 
-@export var statuseffects : Array
+@export var status_effects : Array
 
 #unique growth rates for characters
 @export var hp_growth: float = 1
@@ -35,8 +35,23 @@ class_name Character
 @export var end_growth: float = 1
 @export var res_growth: float = 1
 @export var luck_growth: float = 1
+
+@export var allowed_weapon_types: Array[String] = ["Swords", "Axes"]
+
 @export var equipped_weapon: Weapon
+@export var equipped_armor: Armor
+@export var equipped_accessory: Item
+
 @export var title: String 
+
+var real_str : int = str
+var real_mag : int = mag
+var real_spd : int  
+var real_end : int = 2
+var real_res : int = 2
+var real_luck : int = 1
+
+
 
 # Internal growth accumulators (float)
 var str_accum: float = 0.0
@@ -144,21 +159,70 @@ func level_up():
 		max_mp = min(round(mp_accum), 999)
 
 
-		#hp = max_hp
+		hp = max_hp
 		mp = max_mp
 
 		
 	
 		print(name, " leveled up to Lv", level, "!")
 
+func update_stats():
+	real_str = str
+	real_mag = mag
+	real_spd = spd
+	real_end = end
+	real_res = res
+	real_luck = luck
+
+	# Add equipment bonuses
+	if equipped_weapon:
+		real_str += equipped_weapon.atk
+		real_mag += equipped_weapon.mag
+	#if equipped_armor:
+	#	real_end += equipped_armor.endurance_bonus
+	#	real_res += equipped_armor.res_bonus
+	#	real_spd += equipped_armor.spd_bonus
+	#f equipped_accessory:
+	#	real_luck += equipped_accessory.luck_bonus
+"""
+	for buff_name in buffs.keys():
+		if buff_name in buff_effects:
+			var effect = buff_effects[buff_name]
+			match effect["stat"]:
+				"endurance":
+					endurance *= effect["multiplier"]
+				"attack":
+					attack *= effect["multiplier"]"""
+
 
 #var equipped_armor: Armor = null
 
-func equip_weapon(weapon: Weapon):
-	equipped_weapon = weapon
-	str += equipped_weapon.atk
-	mag += equipped_weapon.mag
-	# etc
+func equip_item(item: Item) -> Item:
+	var unequipped: Item = null
+
+	match item.type:
+		"weapon":
+			var weapon = item as Weapon
+			if not allowed_weapon_types.has(weapon.weapon_type):
+				print("%s cannot equip %s" % [name, weapon.name])
+				return null  # reject the equip
+			if equipped_weapon:
+				unequipped = equipped_weapon
+			equipped_weapon = weapon
+
+		"armor":
+			if equipped_armor:
+				unequipped = equipped_armor
+			equipped_armor = item as Armor
+
+		"accessory":
+			if equipped_accessory:
+				unequipped = equipped_accessory
+			equipped_accessory = item as Accessory
+
+	update_stats()
+	return unequipped
+
 
 #func equip_armor(armor: Armor):
 #	equipped_armor = armor

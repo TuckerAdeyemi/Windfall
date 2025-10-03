@@ -3,25 +3,29 @@
 [ext_resource type="AudioStream" uid="uid://cdawyry5j8dtj" path="res://music/battle.ogg" id="1_2ecu5"]
 [ext_resource type="Resource" uid="uid://d3s2vmv53gfh2" path="res://scripts/ai/BasicAI.tres" id="1_4m2xr"]
 [ext_resource type="Texture2D" uid="uid://ba4328khmnjii" path="res://assets/icons/dark.png" id="2_4m2xr"]
-[ext_resource type="Script" uid="uid://c6wopjwnia1a" path="res://scripts/enemy.gd" id="2_8gxua"]
+[ext_resource type="Script" uid="uid://c6wopjwnia1a" path="res://scripts/resources/enemy.gd" id="4_4m2xr"]
 
 [resource]
-script = ExtResource("2_8gxua")
+script = ExtResource("4_4m2xr")
 portrait = ExtResource("2_4m2xr")
 name = "Wolf"
 level = 3
-max_hp = 20
-hp = 20
+max_hp = 200
+hp = 200
 mp = 0
 max_mp = 0
-str = 0
+str = 7
 mag = 0
-spd = 0
+spd = 5
 def = 0
 res = 0
 luck = 0
-exp_given = 0
-money_total = 0
+exp_given = 24
+money_total = 420
+status_effects = []
+items_given = {
+"Nothing": 1
+}
 items_stealable = {
 "Nothing": 1
 }
@@ -29,13 +33,14 @@ sprite_path = "uid://d1weldsmy88bd"
 battle_theme = ExtResource("1_2ecu5")
 is_player = false
 ai_script = ExtResource("1_4m2xr")
+spelllist = null
 elemental_weaknesses = {
 "Dark": 1.0,
 "Earth": 1.0,
 "Fire": 1.0,
 "Ice": 1.0,
 "Light": 1.0,
-"Lightning": 1.0,
+"Lightning": 1.5,
 "Neutral": 1.0,
 "Time": 1.0,
 "Wind": 1.0

@@ -7,6 +7,17 @@ func _ready():
 
 var character_data: Enemy
 
+func flash_sprite() -> void:
+	var saved_material: Material = sprite.material
+	sprite.material = null
+	sprite.modulate = Color.WHITE
+
+	await get_tree().create_timer(0.1).timeout
+
+	sprite.modulate = Color(1, 1, 1, 1)
+	sprite.material = saved_material
+
+
 func set_character(data):
 	character_data = data
 	update_sprite()
@@ -23,7 +34,11 @@ func update_sprite():
 		var sprite_texture = load(realpath)
 		if sprite_texture:
 			sprite.texture = sprite_texture
+			
 func run_ai(battle_manager: Node):
+	
+	await flash_sprite()
+	
 	await get_tree().create_timer(1.0).timeout
 	
 	await character_data.ai_script.take_turn(character_data, battle_manager.party_nodes, battle_manager)
@@ -51,7 +66,7 @@ func die():
 			mat.set_shader_parameter("cutoff", cutoff)
 			await tree.create_timer(duration / steps).timeout  # Use cached tree
 			
-	queue_free()  # Remove from scene — or replace with death animation
+	queue_free()
 
 	# Tell the BattleScene to remove from queue
 	if get_parent().has_method("remove_dead_from_turn_queue"):

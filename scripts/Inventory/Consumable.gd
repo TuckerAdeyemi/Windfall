@@ -1,8 +1,9 @@
-extends "res://scripts/Inventory/items.gd"
+extends Item
 
 class_name Consumable
 
 @export var heal_amount: int = 0
+@export var mp_heal_amount: int = 0
 @export var gives_exp: int = 0
 @export var removes_poison: bool = false
 

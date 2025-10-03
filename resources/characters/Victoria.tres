@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://ba2jrd0o0b4kd" path="res://items/weapons/iron_rod.tres" id="1_jogg7"]
 [ext_resource type="Texture2D" uid="uid://b2gqpdna6r5oi" path="res://assets/portraits/Screenshot 2025-07-03 040158.png" id="1_t2icf"]
-[ext_resource type="Script" uid="uid://nydcb2tus73c" path="res://scripts/Character.gd" id="2_joa1i"]
+[ext_resource type="Script" uid="uid://nydcb2tus73c" path="res://scripts/resources/Character.gd" id="2_joa1i"]
 [ext_resource type="Resource" uid="uid://daydqe0681gj5" path="res://resources/skills/spellset/VicSpells.tres" id="3_ws0v5"]
 
 [resource]
@@ -10,23 +10,25 @@ script = ExtResource("2_joa1i")
 portrait = ExtResource("1_t2icf")
 name = "Victoria"
 level = 1
-hp = 90
 max_hp = 90
+hp = 90
 mp = 40
 max_mp = 40
-exp = null
-exp_to_next = null
-exp_total = null
-str = null
+exp = 0
+exp_to_next = 0
+exp_total = 0
+str = 2
 mag = 4
-spd = null
+spd = 2
 end = 1
-res = null
-luck = null
-sprite_path = null
+res = 2
+luck = 1
+sprite_path = ""
 spell_set = ExtResource("3_ws0v5")
 animation_frames_path = "res://resources/animations/vic_sprite_frames.tres"
 is_player = true
+pronouns = ["She", "Her", "Hers"]
+status_effects = []
 hp_growth = 1.124
 mp_growth = 1.834
 str_growth = 0.6
@@ -35,5 +37,6 @@ spd_growth = 1.2
 end_growth = 0.91
 res_growth = 1.3
 luck_growth = 0.6
+allowed_weapon_types = Array[String](["Swords", "Axes"])
 equipped_weapon = ExtResource("1_jogg7")
 title = "Princess of Ignaton"

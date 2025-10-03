@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://ba2jrd0o0b4kd"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://ba2jrd0o0b4kd"]
 
 [ext_resource type="Script" uid="uid://yxjoxkp2xaui" path="res://scripts/Inventory/Weapon.gd" id="1_1w6ee"]
+[ext_resource type="Texture2D" uid="uid://rvyxal26jsy1" path="res://assets/icons/fc1494.png" id="1_wr7o5"]
 
 [resource]
 script = ExtResource("1_1w6ee")
@@ -8,11 +9,20 @@ atk = 1
 hit_rate = 1.0
 crit_rate = 0.0
 weight = 1
+str = 0
 mag = 3
+spd = 0
+def = 0
+res = 0
+luck = 0
+weapon_type = ""
 rarity = "Common"
 attack_type = "Blunt"
 element = "Neutral"
+sprite = ExtResource("1_wr7o5")
 name = "Iron Rod"
-description = ""
-item_type = ""
-amount = 0
+icon = ExtResource("1_wr7o5")
+id = 0
+description = "A basic iron rod. It increases magic slightly."
+type = "weapon"
+amount = 1

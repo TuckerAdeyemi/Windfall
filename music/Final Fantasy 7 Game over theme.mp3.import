@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://vig4iqw4fu4u"
+path="res://.godot/imported/Final Fantasy 7 Game over theme.mp3-edb5373204b7c631104d06e37e5d78ab.mp3str"
+
+[deps]
+
+source_file="res://music/Final Fantasy 7 Game over theme.mp3"
+dest_files=["res://.godot/imported/Final Fantasy 7 Game over theme.mp3-edb5373204b7c631104d06e37e5d78ab.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.044
+bpm=0.0
+beat_count=0
+bar_beats=4

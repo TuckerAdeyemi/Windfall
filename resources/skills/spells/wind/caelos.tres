@@ -1,16 +1,14 @@
 [gd_resource type="Resource" script_class="Magic" load_steps=3 format=3 uid="uid://d1i17yjfvyn4u"]
 
-[ext_resource type="Script" uid="uid://epd1k20tycu8" path="res://scripts/magic.gd" id="2_7mcx6"]
-
-[sub_resource type="Resource" id="Resource_4d8kk"]
-metadata/__load_path__ = "res://assets/icons/fc963.png"
+[ext_resource type="Texture2D" uid="uid://ch8wfrlxqtbj7" path="res://assets/icons/wind.png" id="1_cqnq5"]
+[ext_resource type="Script" uid="uid://epd1k20tycu8" path="res://scripts/resources/magic.gd" id="2_7mcx6"]
 
 [resource]
 script = ExtResource("2_7mcx6")
 element = "Wind"
 magic_type = "Black"
 tier = 3
-icon = SubResource("Resource_4d8kk")
+icon = ExtResource("1_cqnq5")
 name = "Caelos"
 description = "Deals heavy wind damage to the enemy."
 power = 110

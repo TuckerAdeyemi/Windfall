@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Consumable" load_steps=3 format=3 uid="uid://cuv4vey0v455s"]
+
+[ext_resource type="Script" uid="uid://clsjaowk5oocw" path="res://scripts/Inventory/Consumable.gd" id="1_tir6p"]
+[ext_resource type="Texture2D" uid="uid://c6fu7xs4bynll" path="res://assets/icons/fc145.png" id="1_wl7d6"]
+
+[resource]
+script = ExtResource("1_tir6p")
+heal_amount = 9999
+mp_heal_amount = 9999
+gives_exp = 0
+removes_poison = false
+name = "Elixir"
+icon = ExtResource("1_wl7d6")
+id = 7
+description = "The greatest of potions. Said to be brewed by the gods themselves."
+type = "consumable"
+amount = 1
+metadata/_custom_type_script = "uid://clsjaowk5oocw"

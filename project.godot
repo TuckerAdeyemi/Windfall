@@ -10,11 +10,12 @@ config_version=5
 
 [application]
 
-config/name="WindfallGame"
+config/name="Windfall"
+config/description="My game that i'm working on."
 run/main_scene="res://map1.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
-boot_splash/image="uid://boudtfcem8j6o"
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.0303472, 0.165078, 0.143041, 1)
+config/icon="uid://ch8wfrlxqtbj7"
 
 [autoload]
 
@@ -24,6 +25,7 @@ SpellDB="*res://scripts/global/spelldb.gd"
 Math="*res://scripts/global/Math.gd"
 DialogueLoader="*res://scripts/DialogueLoader.gd"
 EnemyPreloader="*res://scripts/EnemyPreloader.gd"
+ItemDB="*res://scripts/global/itemdb.gd"
 
 [display]
 
@@ -156,6 +158,16 @@ KILLVIC={
 Die={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":90,"key_label":0,"unicode":122,"location":0,"echo":false,"script":null)
+]
+}
+Chest={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":67,"key_label":0,"unicode":99,"location":0,"echo":false,"script":null)
+]
+}
+Menu={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":73,"key_label":0,"unicode":105,"location":0,"echo":false,"script":null)
 ]
 }
 

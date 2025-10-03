@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Magic" load_steps=3 format=3 uid="uid://cg42nygx33y0o"]
 
 [ext_resource type="Texture2D" uid="uid://7e683fjvgr1r" path="res://assets/icons/ice.png" id="1_3yf5j"]
-[ext_resource type="Script" uid="uid://epd1k20tycu8" path="res://scripts/magic.gd" id="2_0tssr"]
+[ext_resource type="Script" uid="uid://epd1k20tycu8" path="res://scripts/resources/magic.gd" id="2_0tssr"]
 
 [resource]
 script = ExtResource("2_0tssr")

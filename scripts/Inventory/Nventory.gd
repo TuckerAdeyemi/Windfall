@@ -24,3 +24,25 @@ func has_item(item_name: String, amount: int = 1) -> bool:
 		if i.name == item_name and i.amount >= amount:
 			return true
 	return false
+
+func to_array() -> Array:
+	var data: Array = []
+	for item in items: # items is Array[Item]
+		data.append({
+			"name": item.name,
+			"amount": item.amount
+		})
+	return data
+
+func from_array(data: Array):
+	items.clear()
+	for entry in data:
+		var name: String = entry.get("name", "")
+		var amount: int = entry.get("amount", 1)
+		
+		# Rebuild the Item from your DB
+		var base_item: Item = ItemDB.get_item(name)
+		if base_item:
+			var copy = base_item.duplicate()
+			copy.amount = amount
+			items.append(copy)

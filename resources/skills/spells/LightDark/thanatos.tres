@@ -1,18 +1,22 @@
 [gd_resource type="Resource" script_class="Magic" load_steps=3 format=3 uid="uid://rw7t66ny7yw7"]
 
 [ext_resource type="Texture2D" uid="uid://ba4328khmnjii" path="res://assets/icons/dark.png" id="1_ob46n"]
-[ext_resource type="Script" uid="uid://epd1k20tycu8" path="res://scripts/magic.gd" id="1_ustdj"]
+[ext_resource type="Script" uid="uid://epd1k20tycu8" path="res://scripts/resources/magic.gd" id="2_ic8ip"]
 
 [resource]
-script = ExtResource("1_ustdj")
+script = ExtResource("2_ic8ip")
 element = "Dark"
 magic_type = "Black"
 tier = 2
 icon = ExtResource("1_ob46n")
 name = "Thanatos"
 description = "Calls upon dark energy within to deal massive, sometimes lethal damage to the target."
-power = 40
+power = 121
 cost = 52
+spd_mult = 1.0
+end_mult = 1.0
+res_mult = 1.0
+duration = 3
 type = "Damage"
 status = Array[Dictionary]([{
 "chance": "",

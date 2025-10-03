@@ -2,16 +2,16 @@
 
 [ext_resource type="Resource" uid="uid://cyw1r2hvc3etq" path="res://items/weapons/iron_sword.tres" id="1_epxha"]
 [ext_resource type="Texture2D" uid="uid://bfdv6aiyjcbmm" path="res://assets/portraits/Screenshot 2024-01-13 031344.png" id="2_48dtc"]
-[ext_resource type="Script" uid="uid://nydcb2tus73c" path="res://scripts/Character.gd" id="2_pqy2y"]
 [ext_resource type="Resource" uid="uid://bi7ei10bvgh83" path="res://resources/skills/spellset/FlynnSpells.tres" id="3_ea8vi"]
+[ext_resource type="Script" uid="uid://nydcb2tus73c" path="res://scripts/resources/Character.gd" id="3_moynv"]
 
 [resource]
-script = ExtResource("2_pqy2y")
+script = ExtResource("3_moynv")
 portrait = ExtResource("2_48dtc")
 name = "Flynn"
 level = 1
-hp = 150
 max_hp = 150
+hp = 150
 mp = 20
 max_mp = 30
 exp = 0
@@ -28,7 +28,7 @@ spell_set = ExtResource("3_ea8vi")
 animation_frames_path = "res://resources/animations/flynn_sprite_frames.tres"
 is_player = true
 pronouns = ["He", "Him", "His"]
-statuseffects = []
+status_effects = []
 hp_growth = 1.632
 mp_growth = 1.23
 str_growth = 1.3
@@ -37,5 +37,6 @@ spd_growth = 1.1
 end_growth = 1.4
 res_growth = 0.9
 luck_growth = 0.5
+allowed_weapon_types = Array[String](["Swords", "Axes"])
 equipped_weapon = ExtResource("1_epxha")
 title = "Prince of Windfall"

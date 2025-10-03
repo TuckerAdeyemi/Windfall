@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://diyvaysa2x4ao"]
+
+[ext_resource type="FontFile" uid="uid://b83elnrrwpif7" path="res://fonts/Sprintura Demo.otf" id="1_sl6nx"]
+
+[resource]
+default_font = ExtResource("1_sl6nx")

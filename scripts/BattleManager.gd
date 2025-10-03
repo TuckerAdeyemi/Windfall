@@ -4,8 +4,14 @@ extends Node
 @onready var enemy_area = get_parent().get_node("EnemyArea")
 @onready var battle_ui = get_parent().get_node("BattleUI")
 @onready var music = get_parent().get_node("BattleMusic")
+@onready var gomusic = get_parent().get_node("GameOverMusic")
 @onready var turn_queue_ui = get_parent().get_node("TurnQueueUI")
 @onready var VicDes = get_parent().get_node("VictoryDesc")
+@onready var VicBor = get_parent().get_node("VictoryBorder")
+@onready var fader = get_parent().get_node("ColorRect")
+@onready var VicLab = get_parent().get_node("VictoryDesc/VictoryLabel")
+@export var fade: = ColorRect
+
 var turn_pointer_scene = preload("res://scenes/TurnPointer.tscn")
 var turn_pointer: Node2D
 
@@ -25,8 +31,6 @@ var party_alive: bool = true
 
 func _ready():
 	GameManage.battle = true
-
-	
 
 	# === Spawn party ===
 	for i in party.size():
@@ -66,21 +70,19 @@ func _ready():
 	build_turn_queue()
 	process_turn()
 
-class SpeedSorter:
-	func compare(a, b):
-		# Sort descending by speed
-		return b["speed"] - a["speed"]	
-
 func build_turn_queue():
 	turn_queue.clear()
-	
 	for child in get_children():
 		if child.has_method("get_character_data"):
 			var char_data = child.get_character_data()
 			if char_data.hp > 0:
+				var effective_spd = char_data.spd
+				for effect in char_data.status_effects:
+					if effect.type == "spd_mod":
+						effective_spd *= effect.multiplier
 				turn_queue.append({
 					"battler": child,
-					"speed": char_data.spd,
+					"speed": effective_spd,
 					"delay": 0
 				})
 				
@@ -149,9 +151,14 @@ func process_turn():
 		
 	var battler = current["battler"]
 	
+	process_damage_effects(battler)
+	battle_ui.populate_party_ui(party, party_nodes)
+
 	var pointer_offset = Vector2(0, -80)  # Adjust as needed
 	turn_pointer.global_position = battler.global_position + pointer_offset
 	turn_pointer.visible = true
+	
+	
 	
 	if battler.character_data.hp <= 0:
 		next_turn()
@@ -161,8 +168,12 @@ func process_turn():
 	# Let current battler act
 	if battler.character_data.is_player:
 		battle_ui.prompt_player_action(battler)
+		await get_tree().create_timer(0.1).timeout
+		
 	else:
 		await battler.run_ai(self)
+		await get_tree().create_timer(0.1).timeout
+		process_damage_effects(battler)
 		battle_ui.populate_party_ui(party, party_nodes)
 		check_battle_end()
 		next_turn()
@@ -182,6 +193,31 @@ func remove_dead_from_turn_queue():
 	# Update the UI
 	if turn_queue_ui:
 		turn_queue_ui.update_queue(turn_queue, current_turn_index)
+
+func process_damage_effects(battler):
+	var effects_to_remove = []
+	for effect in battler.character_data.status_effects:
+		if effect.type == "poison":
+			var dmg = effect.value
+			dmg = 0.1 * battler.character_data.max_hp
+			battler.character_data.hp = max(0, battler.character_data.hp - dmg)
+			
+			# Show purple damage text
+			battle_ui.show_damage_number(
+				battler.global_position + Vector2(0, -80),
+				dmg,
+				Color(0.6, 0.2, 0.8)  # poison = purple
+			)
+			
+			print("%s took %d poison damage!" % [battler.character_data.name, dmg])
+			
+			effect.duration -= 1
+			if effect.duration <= 0:
+				effects_to_remove.append(effect)
+	
+	for expired in effects_to_remove:
+		battler.character_data.status_effects.erase(expired)
+
 
 func check_battle_end():
 	var any_enemies_alive = false
@@ -213,6 +249,7 @@ func end_battle():
 	disable_battle_ui()
 	victory_shown = true
 	VicDes.visible = true
+	VicBor.visible = true
 	var total_exp = 0
 	var total_gold = 0
 	
@@ -221,13 +258,9 @@ func end_battle():
 	
 	for enemy in GameManage.enemy_group:
 		total_gold += enemy.money_total
+
 	
-	for child in VicDes.get_children():
-		child.queue_free()
-	
-	var victory_label = Label.new()
-	victory_label.text = "Battle is over! %s won! Each party member gained %d EXP. %d Gold gained." % [GameManage.party[0].name, total_exp, total_gold]
-	VicDes.add_child(victory_label)
+	VicLab.text = "Battle is over! %s won! Each party member gained %d EXP. %d Gold gained." % [GameManage.party[0].name, total_exp, total_gold]
 	turn_queue_ui.visible = false
 	GameManage.gold += total_gold
 	for member in GameManage.party:
@@ -244,13 +277,15 @@ func wait_for_input(action_name: String) -> void:
 
 func gameover():
 	print("Game Over. All party members defeated.")
+	VicDes.visible = true
+	VicBor.visible = true
+	VicLab.text = "Annihilated"
 	turn_pointer.visible = false
 	turn_queue_ui.visible = false
 	party_alive = false
 	disable_battle_ui()
-	music.stop
-	print(music.playing)
-	
+	music.stop()
+	gomusic.play()	
 	
 	
 func _unhandled_input(event):
@@ -259,11 +294,13 @@ func _unhandled_input(event):
 		end_battle()
 	if victory_shown and (event.is_action_pressed("Test")):
 		GameManage.battle = false
+		fader.fade_out()
+		await get_tree().create_timer(1.0).timeout
 		get_tree().change_scene_to_file(GameManage.last_scene_path)
 		
 
 func basic_attack(attacker, target) -> void:
-	var base_damage = attacker.level * 2 * attacker.str  # or attacker.strength if physical
+	var base_damage = attacker.level * 2 * attacker.str
 	var variance = randf_range(0.95, 1.05)
 	var raw_damage = int(base_damage * variance)
 	var final_damage = max(0, (raw_damage * (255 - target.character_data.end) / 256))

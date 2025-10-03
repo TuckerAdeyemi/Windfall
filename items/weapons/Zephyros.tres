@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://xk4huxh6fb71"]
+
+[ext_resource type="Texture2D" uid="uid://rqtbniti7fy1" path="res://assets/icons/fc1739.png" id="1_jl4ke"]
+[ext_resource type="Script" uid="uid://yxjoxkp2xaui" path="res://scripts/Inventory/Weapon.gd" id="1_u7dfr"]
+
+[resource]
+script = ExtResource("1_u7dfr")
+atk = 255
+hit_rate = 0.97
+crit_rate = 0.25
+weight = 10
+str = 0
+mag = 40
+spd = 0
+def = 0
+res = 0
+luck = 0
+weapon_type = "Swords"
+rarity = "Divine"
+attack_type = "Slash"
+element = "Wind"
+sprite = ExtResource("1_jl4ke")
+name = "Zephyros"
+icon = ExtResource("1_jl4ke")
+id = 0
+description = "Sword used by the legendary hero of Windfall."
+type = "weapon"
+amount = 1
+metadata/_custom_type_script = "uid://yxjoxkp2xaui"

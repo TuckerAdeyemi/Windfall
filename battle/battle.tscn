@@ -1,17 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://ck6qs6o46msd8"]
+[gd_scene load_steps=12 format=3 uid="uid://ck6qs6o46msd8"]
 
 [ext_resource type="Script" uid="uid://ctigla3gymshw" path="res://scripts/BattleManager.gd" id="1_t6btv"]
 [ext_resource type="PackedScene" uid="uid://chuac4i5nqt0s" path="res://scenes/turn_queue_ui.tscn" id="2_d5ehl"]
 [ext_resource type="Texture2D" uid="uid://cwvps1ydmd1eo" path="res://assets/background/pkkxftw762661.png" id="3_cuxwk"]
 [ext_resource type="PackedScene" uid="uid://c6oxkqtsrp5hn" path="res://scenes/battle_ui.tscn" id="5_c85qc"]
 [ext_resource type="Texture2D" uid="uid://nuvp2ywrttog" path="res://assets/background/Grasslandf.png" id="7_fink1"]
+[ext_resource type="AudioStream" uid="uid://vig4iqw4fu4u" path="res://music/Final Fantasy 7 Game over theme.mp3" id="7_vlrs1"]
+[ext_resource type="PackedScene" uid="uid://dnyswks4x2f1n" path="res://Fade.tscn" id="8_iorop"]
+[ext_resource type="StyleBox" uid="uid://d2b5k6ri32yl3" path="res://ui/menu.tres" id="8_rxlun"]
 [ext_resource type="Texture2D" uid="uid://b2upbp0wc4xfn" path="res://assets/background/Forest.png" id="8_skm6p"]
 [ext_resource type="StyleBox" uid="uid://p28l7g10ihwi" path="res://scenes/uistyle.tres" id="8_v7tbi"]
+[ext_resource type="FontFile" uid="uid://b83elnrrwpif7" path="res://fonts/Sprintura Demo.otf" id="9_hvjow"]
 
 [node name="BattleScene" type="Node2D"]
 
-[node name="BattleManager" type="Node" parent="."]
+[node name="BattleManager" type="Node" parent="." node_paths=PackedStringArray("fade")]
 script = ExtResource("1_t6btv")
+fade = NodePath("../ColorRect")
 
 [node name="BackgroundBottom" type="Sprite2D" parent="."]
 position = Vector2(650, 340)
@@ -67,8 +72,29 @@ centered = false
 volume_db = -10.0
 autoplay = true
 
+[node name="GameOverMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_vlrs1")
+
 [node name="VictoryDesc" type="Panel" parent="."]
 visible = false
 offset_right = 1300.0
 offset_bottom = 100.0
 theme_override_styles/panel = ExtResource("8_v7tbi")
+
+[node name="VictoryLabel" type="Label" parent="VictoryDesc"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 50.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("9_hvjow")
+theme_override_font_sizes/font_size = 20
+text = "Penis"
+
+[node name="VictoryBorder" type="Panel" parent="."]
+visible = false
+offset_right = 1300.0
+offset_bottom = 100.0
+theme_override_styles/panel = ExtResource("8_rxlun")
+
+[node name="ColorRect" parent="." instance=ExtResource("8_iorop")]

@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://cpdxlo28fqtd5"]
+
+[ext_resource type="Texture2D" uid="uid://dwi8q2f2v6noc" path="res://assets/icons/fc1722.png" id="1_5mo0p"]
+[ext_resource type="Script" uid="uid://yxjoxkp2xaui" path="res://scripts/Inventory/Weapon.gd" id="1_5sqpg"]
+
+[resource]
+script = ExtResource("1_5sqpg")
+atk = 245
+hit_rate = 0.95
+crit_rate = 0.15
+weight = 8
+str = 0
+mag = 15
+spd = 0
+def = 0
+res = 0
+luck = 0
+weapon_type = "Sword"
+rarity = "Divine"
+attack_type = "Slash"
+element = "Light"
+sprite = ExtResource("1_5mo0p")
+name = "Ragnarok"
+icon = ExtResource("1_5mo0p")
+id = 0
+description = "The blade of legends."
+type = "weapon"
+amount = 1
+metadata/_custom_type_script = "uid://yxjoxkp2xaui"

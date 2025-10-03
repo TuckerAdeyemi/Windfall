@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://chuac4i5nqt0s"]
+[gd_scene load_steps=3 format=3 uid="uid://chuac4i5nqt0s"]
 
 [ext_resource type="Script" uid="uid://exg5b1142qij" path="res://battle/TurnQueueUI.gd" id="1_lly7b"]
+[ext_resource type="StyleBox" uid="uid://cgfp5ch7p4wba" path="res://ui/info.tres" id="2_apgm3"]
 
 [node name="TurnQueueUI" type="Control" node_paths=PackedStringArray("queue_box", "portrait_template")]
 layout_mode = 3
@@ -25,3 +26,12 @@ grow_vertical = 2
 visible = false
 layout_mode = 2
 expand_mode = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_apgm3")

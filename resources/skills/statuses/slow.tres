@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3 uid="uid://c0dcw10xdf24p"]
+
+[ext_resource type="Script" uid="uid://cjc2v5arqess7" path="res://scripts/resources/statuseffects.gd" id="1_hjp33"]
+
+[resource]
+script = ExtResource("1_hjp33")
+name = "Slow"
+type = "spd_mod"
+multiplier = 0.75
+duration = 3
+value = 0
+metadata/_custom_type_script = "uid://cjc2v5arqess7"

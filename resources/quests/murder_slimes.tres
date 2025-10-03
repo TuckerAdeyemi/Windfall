@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=2 format=3 uid="uid://ojlbn7f70aka"]
+
+[ext_resource type="Script" uid="uid://kvo3k2cntob3" path="res://scripts/resources/Quest.gd" id="1_tm3x4"]
+
+[resource]
+script = ExtResource("1_tm3x4")
+id = "slimicide"
+title = "Kill Slimes"
+description = "I am a slime racist."
+requirements = {
+"slimes_killed": 5
+}
+rewards = {}
+is_main = false
+metadata/_custom_type_script = "uid://kvo3k2cntob3"

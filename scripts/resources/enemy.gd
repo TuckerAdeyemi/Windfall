@@ -18,7 +18,10 @@ class_name Enemy
 @export var exp_given: int
 @export var money_total: int
 
-#@export var items_given: int
+@export var status_effects : Array
+
+
+@export var items_given: Dictionary = {"Nothing" : 1}
 @export var items_stealable : Dictionary = {"Nothing" : 1}
 
 
@@ -26,6 +29,8 @@ class_name Enemy
 @export var battle_theme : AudioStreamOggVorbis = preload("res://music/rudebuster_boss.ogg")
 @export var is_player: bool = false
 @export var ai_script: EnemyAI
+
+@export var spelllist: Array = [SpellDB.get_spell("Tardus")]
 
 @export var elemental_weaknesses = {
 	"Fire": 1.0,

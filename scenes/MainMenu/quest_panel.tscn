@@ -1,0 +1,112 @@
+[gd_scene load_steps=10 format=3 uid="uid://dvh2ao4l1smx3"]
+
+[ext_resource type="StyleBox" uid="uid://cu0lw8ncmb2y4" path="res://scenes/test.tres" id="1_35xvm"]
+[ext_resource type="Script" uid="uid://0utu23rn1njo" path="res://scenes/MainMenu/QuestMenu.gd" id="2_s1mu4"]
+[ext_resource type="Theme" uid="uid://myhfhl1wrmq6" path="res://scenes/MainMenu/theme.tres" id="3_jlxs0"]
+[ext_resource type="FontFile" uid="uid://b83elnrrwpif7" path="res://fonts/Sprintura Demo.otf" id="3_s1mu4"]
+[ext_resource type="StyleBox" uid="uid://cgfp5ch7p4wba" path="res://ui/info.tres" id="4_jlxs0"]
+[ext_resource type="Theme" uid="uid://qw4d15wvmg4m" path="res://fonts/idk.tres" id="6_30ysx"]
+
+[sub_resource type="Gradient" id="Gradient_30ysx"]
+colors = PackedColorArray(0, 0.431373, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jhwd2"]
+gradient = SubResource("Gradient_30ysx")
+use_hdr = true
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k211r"]
+texture = SubResource("GradientTexture2D_jhwd2")
+modulate_color = Color(1, 1, 1, 0.447059)
+
+[node name="QuestsPanel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_35xvm")
+script = ExtResource("2_s1mu4")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 23.0
+offset_right = 440.0
+offset_bottom = 63.0
+theme = ExtResource("3_jlxs0")
+theme_override_font_sizes/font_size = 35
+text = "Current Quests"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 452.0
+offset_top = 24.0
+offset_right = 1252.0
+offset_bottom = 694.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_k211r")
+
+[node name="Panel" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("4_jlxs0")
+
+[node name="Description" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_s1mu4")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "buns"
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 68.0
+offset_right = 438.0
+offset_bottom = 108.0
+theme_override_fonts/font = ExtResource("3_s1mu4")
+tab_alignment = 1
+current_tab = 0
+drag_to_rearrange_enabled = true
+
+[node name="All" type="Control" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Active" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("6_30ysx")
+metadata/_tab_index = 1
+
+[node name="Completed" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 134.0
+offset_right = 434.0
+offset_bottom = 1216.0
+theme_override_styles/focus = ExtResource("1_35xvm")
+horizontal_scroll_mode = 0
+
+[node name="QuestList" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme = ExtResource("3_jlxs0")
+theme_override_constants/separation = 10

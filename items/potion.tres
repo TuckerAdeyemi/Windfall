@@ -5,11 +5,13 @@
 
 [resource]
 script = ExtResource("2_hwiv8")
-heal_amount = 0
+heal_amount = 100
+mp_heal_amount = 0
 gives_exp = 0
 removes_poison = false
 name = "Potion"
 icon = ExtResource("1_vpgvb")
+id = 1
 description = "Heals for 100 HP. Consumable"
 item_type = "Consumable"
 amount = 5

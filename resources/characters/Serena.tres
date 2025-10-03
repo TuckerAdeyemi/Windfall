@@ -1,17 +1,18 @@
-[gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://b6852uwsch363"]
+[gd_resource type="Resource" script_class="Character" load_steps=6 format=3 uid="uid://b6852uwsch363"]
 
-[ext_resource type="Script" uid="uid://nydcb2tus73c" path="res://scripts/Character.gd" id="1_5myrr"]
 [ext_resource type="Resource" uid="uid://lmeu3851vy1b" path="res://items/weapons/iron_dagger.tres" id="1_pqbuk"]
 [ext_resource type="Texture2D" uid="uid://c71tv21edqqlb" path="res://assets/portraits/Screenshot 2024-01-13 031317.png" id="2_bww45"]
 [ext_resource type="Resource" uid="uid://22gqh5362pw7" path="res://resources/skills/spellset/SeraSpells.tres" id="3_kd1i5"]
+[ext_resource type="Script" uid="uid://nydcb2tus73c" path="res://scripts/resources/Character.gd" id="3_yhqvm"]
+[ext_resource type="Resource" uid="uid://c0dcw10xdf24p" path="res://resources/skills/statuses/slow.tres" id="5_q5ymh"]
 
 [resource]
-script = ExtResource("1_5myrr")
+script = ExtResource("3_yhqvm")
 portrait = ExtResource("2_bww45")
 name = "Serena"
 level = 1
-hp = 120
 max_hp = 120
+hp = 120
 mp = 35
 max_mp = 35
 exp = 0
@@ -28,7 +29,7 @@ spell_set = ExtResource("3_kd1i5")
 animation_frames_path = "res://resources/animations/sera_sprite_frames.tres"
 is_player = true
 pronouns = ["She", "Her", "Hers"]
-statuseffects = []
+status_effects = [ExtResource("5_q5ymh")]
 hp_growth = 1.372
 mp_growth = 1.412
 str_growth = 1.123
@@ -37,5 +38,6 @@ spd_growth = 1.545
 end_growth = 1.123
 res_growth = 1.222
 luck_growth = 1.0
+allowed_weapon_types = Array[String](["Swords", "Axes"])
 equipped_weapon = ExtResource("1_pqbuk")
 title = "Princess of Windfall"

@@ -3,13 +3,14 @@ extends Node
 class_name GameManager
 
 @onready var pause_menu: PauseMenu = preload("res://pause_menu.tscn").instantiate()
+@onready var particles: GPUParticles2D = pause_menu.get_node("Control/Particles")
+@onready var Border: Panel = pause_menu.get_node("Border")
 @onready var inventory = Inventory.new()
 
 var player_stats = []
 var party: Array[Character] = []     # Flynn, Serena, etc.
 var enemy_group: Array[Enemy] = []  # Enemies in this battle
 var gold: int = 0
-
 var battle: bool = false
 
 var total_game_time = 0.0  # Total time the game has been running (in seconds)
@@ -43,7 +44,7 @@ func _ready():
 	panel.visible = false
 	
 	game_start_time = Time.get_ticks_msec() / 1000.0  # Record the start time in seconds
-	print("Game started at:", game_start_time)
+	print("Game started at: ", game_start_time)
 	
 	flynn.resource_path = flynn_path
 	serena.resource_path = serena_path
@@ -59,6 +60,7 @@ func reset():
 	gold = 0
 	
 var flags = {}
+var quests: Dictionary = {}
 
 func set_flag(key: String, value):
 	flags[key] = value
@@ -92,7 +94,7 @@ func update_playtime_display():
 	
 #opens the pause menu, except in battles where it is disabled. Will modify later to be more general.
 func _unhandled_input(event):
-	if event.is_action_pressed("Enter") and !(is_game_paused) and !(battle):
+	if event.is_action_pressed("Menu") and !(is_game_paused) and !(battle):
 		toggle_pause_menu()
 		pause_menu.set_initial_focus()
 	elif event.is_action_pressed("Back") and pause_menu.visible and !(battle):
@@ -104,15 +106,19 @@ func _unhandled_input(event):
 			toggle_pause_menu()
 	if event.is_action_pressed("EXP"):
 		Character.grant_exp_to_party(1000000)
+		pause_menu.show_party(party)
 	if event.is_action_pressed("LevelUp"):
 		level_up_party()
+		pause_menu.show_party(party)
 	if event.is_action_pressed("ADDVIC"):
 		party.append(victoria)
 		party.append(caelith)
+		pause_menu.show_party(party)
 	if event.is_action_pressed("KILLVIC"):
 		party.erase(victoria)
 		party.erase(caelith)
-		print("are they dead?")
+		pause_menu.show_party(party)
+
 func level_up_party():
 	for member in party:
 		# Optional: Skip dead members
@@ -121,14 +127,31 @@ func level_up_party():
 
 var is_game_paused := false
 
-
 func update_location():
 	pause_menu.location.text = "Location: " + location
 	
 func displaygold():
 	pause_menu.gold_display.text = "Gold: %d" % [gold]
-	
-#Toggles the pause menu
+
+func add_quest(quest: Quest):
+	if !quests.has(quest.id):
+		quests[quest.id] = {
+			"quest": quest,
+			"progress": {},
+			"completed": false
+		}
+
+func complete_quest(id: String):
+	if quests.has(id):
+		quests[id]["completed"] = true
+		# handle rewards
+		var rewards = quests[id]["quest"].rewards
+		if rewards.has("gold"):
+			gold += rewards["gold"]
+			displaygold()
+		if rewards.has("item"):
+			Nventory.add_item(ItemDB.get_item(rewards["item"]))
+
 #Changed it from pause_menu to panel. May cause issues later.
 func toggle_pause_menu():
 	is_game_paused = !is_game_paused
@@ -136,8 +159,16 @@ func toggle_pause_menu():
 	panel.visible = is_game_paused
 	#add_child(pause_menu)
 	update_pause()
+	
 	if is_game_paused:
 		pause_menu.show_party(party)
+		particles.emitting = true
+		Border.visible = true
+		particles.restart()
+	else:
+		particles.emitting = false
+		particles.restart()
+		Border.visible = false
 	return
 
 func update_pause():
@@ -166,25 +197,51 @@ func reset_player_node(player_node: Node):
 	portrait.texture = null
 
 func return_to_main_panel():
-	# Show main panel
+	# Are we in the Equip workflow? (inventory opened from equip panel)
+	if pause_menu.get_node("InvenPanel").visible and pause_menu.get_node("EquipPanel").visible:
+		# Just close inventory, stay in Equip
+		pause_menu.get_node("InvenPanel").visible = false
+		pause_menu.get_node("InvenPanel/InventoryUI").visible = false
+
+		# Reset preview text
+		var preview = pause_menu.get_node("EquipPanel/HBoxContainer/VBoxContainer2/PreviewLabel")
+		if preview:
+			preview.text = ""
+
+		# Keep focus on equip menu
+		pause_menu._update_stats()
+		return
+
+	# === Otherwise go back to main menu ===
+	pause_menu.show_party(party)
 	pause_menu.panel.visible = true
-	
+
 	# Hide sub-panels
 	pause_menu.get_node("StatusPanel").visible = false
-	pause_menu.get_node("InvenPanel").visible = false
+	pause_menu.get_node("InvenPanel/InventoryUI").visible = false
 	pause_menu.get_node("MagicPanel").visible = false
-	# Add more if you have others, like pause_menu.get_node("Panel/EquipPanel").visible = false
+	pause_menu.get_node("SettingPanel").visible = false
+	pause_menu.get_node("EquipPanel").visible = false
+	pause_menu.get_node("QuestPanel").visible = false
+	pause_menu.get_node("InvenPanel").visible = false
+	pause_menu.get_node("SavePanel").visible = false
+
+	# Clear preview text
+	var preview = pause_menu.get_node("EquipPanel/HBoxContainer/VBoxContainer2/PreviewLabel")
+	if preview:
+		preview.text = ""
 
 	# Reset focus to main menu buttons
 	pause_menu.set_initial_focus()
 
-func save_game():
+func save_game(slot: int):
 	var player = get_tree().current_scene.get_node("Player")
 	var save_data = {
 		"player_position": { "x": player.global_position.x, "y": player.global_position.y},
 		"gold": gold,
 		"party": [],
-		"inventory": [],
+		"inventory": Nventory.to_array(),
+		"flags": flags,
 		"playtime": total_game_time
 	}
 
@@ -219,83 +276,72 @@ func save_game():
 		save_data["party"].append(character_data)
 
 	# Save inventory
-	for item in inventory.items:
-		save_data["inventory"].append({
-			"name": item.name,
-			"amount": item.amount
-		})
+
 
 	# Write to file
-	var file = FileAccess.open("user://savegame.json", FileAccess.WRITE)
+	var path = "user://savegame_%d.json" % slot
+	var file = FileAccess.open(path, FileAccess.WRITE)
 	file.store_string(JSON.stringify(save_data, "\t"))
 	file.close()
-	print("Game Saved!")
+	print("Game saved to slot %d!" % slot)
 
-func load_game():
-	if not FileAccess.file_exists("user://savegame.json"):
-		print("No save file found.")
-		return
+func load_game(slot: int):
+	var path = "user://savegame_%d.json" % slot
+	if not FileAccess.file_exists(path):
+		print("No save file in slot %d" % slot)
+		return false
 
-	var file = FileAccess.open("user://savegame.json", FileAccess.READ)
-	var save_data = JSON.parse_string(file.get_as_text())
+	var file = FileAccess.open(path, FileAccess.READ)
+	var data = JSON.parse_string(file.get_as_text())
 	file.close()
 
-	#Restore basic values
-	gold = save_data.get("gold", 0)
-	total_game_time = save_data.get("playtime", 0.0)
+	if typeof(data) != TYPE_DICTIONARY:
+		print("Failed to load save slot %d" % slot)
+		return false
+
+	# Restore gold, flags, etc.
+	gold = data["gold"]
+	flags = data.get("flags", {})
+	for chest in get_tree().get_nodes_in_group("chests"):
+		chest.refresh_state()
+	Nventory.from_array(data.get("inventory", []))
+	total_game_time = data["playtime"]
+
+	# Restore player position
 	var player = get_tree().current_scene.get_node("Player")
-	var pos_data = save_data["player_position"]
-	player.global_position = Vector2(pos_data["x"], pos_data["y"])
+	player.global_position = Vector2(data["player_position"]["x"], data["player_position"]["y"])
 
-
-	#Restore party
+	# Restore party
 	party.clear()
-	for character_data in save_data["party"]:
-		print("Loading resource:", character_data["resource_path"])
-		var character = load(character_data["resource_path"]).duplicate()
+	for char_data in data["party"]:
+		var char_res = load(char_data["resource_path"])
+		var char = char_res.duplicate()
+		char.level = char_data["level"]
+		char.hp = char_data["hp"]
+		char.max_hp = char_data["max_hp"]
+		char.mp = char_data["mp"]
+		char.max_mp = char_data["max_mp"]
+		char.str = char_data["str"]
+		char.mag = char_data["mag"]
+		char.end = char_data["end"]
+		char.spd = char_data["spd"]
+		char.res = char_data["res"]
+		char.luck = char_data["luck"]
+		char.exp = char_data["exp"]
+		char.exp_to_next = char_data["exp_to_next"]
+		char.exp_total = char_data["exp_total"]
 		
-		# Restore all saved stats
-		character.level = character_data["level"]
-		character.hp = character_data["hp"]
-		character.max_hp = character_data["max_hp"]
-		character.mp = character_data["mp"]
-		character.max_mp = character_data["max_mp"]
-		character.str = character_data["str"]
-		character.mag = character_data["mag"]
-		character.end = character_data["end"]
-		character.spd = character_data["spd"]
-		character.res = character_data["res"]
-		character.luck = character_data["luck"]
-		character.exp = character_data["exp"]
-		character.exp_to_next = character_data["exp_to_next"]
-		character.exp_total = character_data["exp_total"]
-		
-		character.str_accum = character_data["str_accum"]
-		character.mag_accum = character_data["mag_accum"]
-		character.spd_accum = character_data["spd_accum"]
-		character.end_accum = character_data["end_accum"]
-		character.res_accum = character_data["res_accum"]
-		character.luck_accum = character_data["luck_accum"]
-		character.hp_accum = character_data["hp_accum"]
-		character.mp_accum = character_data["mp_accum"]
-		
-		# Add to party
-		party.append(character)
+		char.str_accum = char_data["str_accum"]
+		char.mag_accum = char_data["mag_accum"]
+		char.spd_accum = char_data["spd_accum"]
+		char.end_accum = char_data["end_accum"]
+		char.res_accum = char_data["res_accum"]
+		char.luck_accum = char_data["luck_accum"]
+		char.hp_accum = char_data["hp_accum"]
+		char.mp_accum = char_data["mp_accum"]
+		party.append(char)
 
+	# Restore inventor
 
-	# Restore inventory
-	inventory.items.clear()
-	#for item_data in save_data["inventory"]:
-	#	var item = ItemDB.get_item(item_data["name"]).duplicate()  # You may need an item database
-	#	item.amount = item_data["amount"]
-	#	inventory.items.append(item)
-	
-	#is_game_paused = false
-	#get_tree().paused = false
-	#pause_menu.panel.visible = false
-	
-	update_playtime_display()
-
-	game_loaded = true
-
-	print("Game Loaded!")
+	print("Game loaded from slot %d!" % slot)
+	return true

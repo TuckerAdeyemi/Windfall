@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Consumable" load_steps=3 format=3 uid="uid://tkmd5vadxtaj"]
+
+[ext_resource type="Texture2D" uid="uid://cfvudvy3pvxpu" path="res://assets/icons/fc959.png" id="1_3q8k7"]
+[ext_resource type="Script" uid="uid://clsjaowk5oocw" path="res://scripts/Inventory/Consumable.gd" id="1_awfx5"]
+
+[resource]
+script = ExtResource("1_awfx5")
+heal_amount = 500
+mp_heal_amount = 0
+gives_exp = 0
+removes_poison = false
+name = "Hi-Potion"
+icon = ExtResource("1_3q8k7")
+id = 2
+description = "Heals for 500 HP. Consumable"
+item_type = "Consumable"
+amount = 1
+metadata/_custom_type_script = "uid://clsjaowk5oocw"

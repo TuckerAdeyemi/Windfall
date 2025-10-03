@@ -6,9 +6,16 @@ extends Node2D
 
 var party: Array[Character] = []
 var loader = DialogueLoader
+var zeph = preload("res://items/weapons/Zephyros.tres")
 
 
 func _ready():
+	Nventory.add_item(zeph)
+	Nventory.add_item(ItemDB.fe_lance)
+	Nventory.add_item(ItemDB.fe_rod)
+	Nventory.add_item(ItemDB.elixir)
+	Nventory.add_item(ItemDB.fe_dagger)
+	
 	pause_menu.visible = false
 	GameManage.location = "Windfall Forest"
 	
@@ -34,4 +41,5 @@ func _ready():
 func _unhandled_input(event):
 	if event.is_action_pressed("Die"):
 		print("fuck")
+		$DialogueBox.visible = true
 		$DialogueBox.start_twison_dialogue(loader.passages, loader.start_pid)

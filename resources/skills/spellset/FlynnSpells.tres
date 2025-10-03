@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="SpellSet" load_steps=2 format=3 uid="uid://bi7ei10bvgh83"]
 
-[ext_resource type="Script" uid="uid://c552436v5nq1d" path="res://scripts/spellset.gd" id="1_yiaw8"]
+[ext_resource type="Script" uid="uid://c552436v5nq1d" path="res://scripts/resources/spellset.gd" id="1_yiaw8"]
 
 [resource]
 script = ExtResource("1_yiaw8")
 spells = {
 "Aeris": 1,
 "Caelos": 37,
-"Curia": 3,
+"Curia": 1,
 "Luxis": 9,
 "Sanare": 18,
 "Solarios": 42,

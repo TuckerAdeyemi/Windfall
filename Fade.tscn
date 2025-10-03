@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnyswks4x2f1n"]
+
+[ext_resource type="Script" uid="uid://f7b7tjhy6l3s" path="res://battle/fade.gd" id="1_v4m7h"]
+
+[node name="ColorRect" type="ColorRect"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(47.9138, 26.9442)
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_v4m7h")

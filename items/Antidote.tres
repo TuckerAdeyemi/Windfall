@@ -6,10 +6,12 @@
 [resource]
 script = ExtResource("1_4pafw")
 heal_amount = 0
+mp_heal_amount = 0
 gives_exp = 0
 removes_poison = true
 name = "Antidote"
 icon = ExtResource("1_xi55n")
+id = 8
 description = "Removes poison status."
-item_type = "Consumable"
+type = "Consumable"
 amount = 2

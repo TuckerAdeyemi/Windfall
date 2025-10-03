@@ -68,5 +68,25 @@ func attack(member: Character, target) -> int:
 	if crit_roll < member.equipped_weapon.crit_rate:
 		print("Critical Hit!")
 		truedamage *= 1.5
+	
+	var variance = randf_range(0.95, 1.05)
+	truedamage *= variance
 		
 	return truedamage
+
+func apply_status_effects(caster: Character, spell: Magic, target):
+	# Example: Speed modifier from spells
+	if spell.spd_mult != 1.0:  # Only apply if multiplier is different from default
+		# Create a status entry for speed modification
+		var status = {
+			"type": "spd_mod",
+			"multiplier": spell.spd_mult,
+			"duration": spell.duration  # Assuming your spell has a duration field
+		}
+
+		# Append to the target's status array (works for both player and enemy)
+		if target.status_effects == null:
+			target.status_effects = []
+		target.status_effects.append(status)
+
+		print("%s is affected by speed change! Multiplier: %f" % [target.name, spell.spd_mult])

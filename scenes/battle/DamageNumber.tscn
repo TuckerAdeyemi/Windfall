@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://mvq5ao6yjrua"]
+[gd_scene load_steps=6 format=3 uid="uid://doypipysq6ond"]
 
 [ext_resource type="FontFile" uid="uid://dbhwgkbknvkk0" path="res://fonts/OldSchoolAdventures-42j9.ttf" id="1_77m66"]
 [ext_resource type="Script" uid="uid://c1nsn5wha3g8o" path="res://scenes/battle/DamageNumber.gd" id="2_ssvbh"]
@@ -8,26 +8,26 @@ resource_name = "DamageAnimation"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -40)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0.5, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DamageNumber:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -40)]
 }
 
 [sub_resource type="Animation" id="Animation_ucyqu"]
@@ -35,26 +35,26 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
+tracks/1/path = NodePath("DamageNumber:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lp7ji"]
@@ -64,16 +64,16 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D"]
-
-[node name="DamageNumber" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("1_77m66")
-theme_override_font_sizes/font_size = 30
 script = ExtResource("2_ssvbh")
 
-[node name="DamageAnimation" type="AnimationPlayer" parent="DamageNumber"]
-root_node = NodePath("../..")
+[node name="DamageAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_lp7ji")
 }
+
+[node name="DamageNumber" type="Label" parent="."]
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 4.0
+theme_override_fonts/font = ExtResource("1_77m66")
+theme_override_font_sizes/font_size = 30

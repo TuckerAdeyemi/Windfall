@@ -21,5 +21,3 @@ func _input(event):
 	
 	_character.gain_exp(100000)
 	_label.update_text(_character.level, _character.xp, _character.exp_req)
-
-

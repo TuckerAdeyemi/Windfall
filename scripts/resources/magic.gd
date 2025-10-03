@@ -1,4 +1,4 @@
-extends "res://scripts/abilities.gd"
+extends Abilities
 
 class_name Magic
 

@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://vtopk67rvn32"]
 
-[ext_resource type="Script" uid="uid://c6wopjwnia1a" path="res://scripts/enemy.gd" id="1_1hvvd"]
 [ext_resource type="Resource" uid="uid://d3s2vmv53gfh2" path="res://scripts/ai/BasicAI.tres" id="1_o2g0d"]
 [ext_resource type="Texture2D" uid="uid://ba4328khmnjii" path="res://assets/icons/dark.png" id="2_0taqg"]
 [ext_resource type="AudioStream" uid="uid://dv5x1hhd5nipg" path="res://music/rudebuster_boss.ogg" id="2_r0b2u"]
+[ext_resource type="Script" uid="uid://c6wopjwnia1a" path="res://scripts/resources/enemy.gd" id="4_r0b2u"]
 
 [resource]
-script = ExtResource("1_1hvvd")
+script = ExtResource("4_r0b2u")
 portrait = ExtResource("2_0taqg")
 name = "Slime"
 level = 2
@@ -14,7 +14,7 @@ max_hp = 20
 hp = 20
 mp = 10
 max_mp = 10
-str = 200
+str = 4
 mag = 3
 spd = 1
 def = 20
@@ -22,6 +22,10 @@ res = 1
 luck = 1
 exp_given = 20
 money_total = 30
+status_effects = []
+items_given = {
+"Nothing": 1
+}
 items_stealable = {
 "Nothing": 1,
 "Potion": 2
@@ -30,11 +34,12 @@ sprite_path = "res://assets/sprites/enemy/windfall-mon-slime-removebg-preview.pn
 battle_theme = ExtResource("2_r0b2u")
 is_player = false
 ai_script = ExtResource("1_o2g0d")
+spelllist = null
 elemental_weaknesses = {
 "Dark": 1.0,
 "Earth": 1.0,
 "Fire": 2.0,
-"Ice": 1.0,
+"Ice": 0.5,
 "Light": 1.0,
 "Lightning": 1.0,
 "Neutral": 1.0,

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=2 format=3 uid="uid://dlkfktwi6a6ca"]
+
+[ext_resource type="Script" uid="uid://kvo3k2cntob3" path="res://scripts/resources/Quest.gd" id="1_5c8b6"]
+
+[resource]
+script = ExtResource("1_5c8b6")
+id = "ruin"
+title = "Clear the Elven Ruins"
+description = "Flynn and Serena were tasked with a mission to enter the forest near the capital of Windfall and check whatever is causing a disturbance in the forests ruins. An overly simple mission for 2 experienced knights."
+requirements = {
+"Rectified Distrurbance": false
+}
+rewards = {
+"gold": 69420
+}
+is_main = true
+metadata/_custom_type_script = "uid://kvo3k2cntob3"

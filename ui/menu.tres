@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://d2b5k6ri32yl3"]
+
+[ext_resource type="Texture2D" uid="uid://gdtoftnxt6h4" path="res://assets/menu/panel-border-004.png" id="1_dmqec"]
+
+[resource]
+texture = ExtResource("1_dmqec")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0

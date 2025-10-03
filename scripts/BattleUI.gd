@@ -6,9 +6,10 @@ extends CanvasLayer
 @export var highlight_color: Color = Color(1, 1, 0)  # Yellow for current turn
 @export var normal_color: Color = Color(1, 1, 1)     # White for idle text
 @export var command_panel: Panel
-@export var commands = ["Attack", "Skill", "Magic", "Defend", "Item"]
+@export var commands = ["Attack", "Skill", "Magic", "Item"]
 @onready var battle_manager = get_parent().get_node("BattleManager")
-@onready var DamageNumberScene = $DamagePopUp/DamageNumber
+#@onready var DamageNumberScene = $DamagePopUp/DamageNumber
+@onready var DamageNumberScene = preload("res://scenes/battle/DamageNumber.tscn")
 @onready var magic_panel = $MagicPanel
 @onready var focus_sfx = $AudioStreamPlayer2D
 @onready var desc = $MagicPanel/MagicDisplay/Description
@@ -144,6 +145,7 @@ func _on_command_button_pressed(command_name):
 	if command_name == "Attack":
 		_show_enemy_target_selection()
 		selecting_target = true
+		
 	
 func _update_command_selection():
 	var list := command_panel.get_node("ScrollContainer/CommandList") as VBoxContainer
@@ -155,6 +157,7 @@ func _show_enemy_target_selection():
 		print("No enemies to select!")
 		return
 	selecting_target = true
+	targeting_party = false
 	selected_enemy_index = 0
 	_update_enemy_selection()
 	enemy_list.grab_focus()
@@ -290,7 +293,7 @@ func prompt_player_action(battler) -> void:
 	
 	if command == "Attack":
 		# Show enemy targets and wait for selection
-		_show_enemy_target_selection()
+		#_show_enemy_target_selection()
 		var target = await target_chosen
 		print("%s attacks %s!" % [battler.character_data.name, target.character_data.name])
 		var truedamage = Math.attack(battler.character_data, target.character_data)
@@ -333,7 +336,7 @@ func prompt_player_action(battler) -> void:
 			
 			var heal = Math.calculate_healing(battler.character_data, magic)
 			target.character_data.hp += min(heal, target.character_data.max_hp - target.character_data.hp)
-			show_damage_number(target.global_position + Vector2(0, -80), heal)
+			show_damage_number(target.global_position + Vector2(0, -80), heal, Color(0.2, 1.0, 0.2))
 			print("%s healed %s for %d HP." % [battler.character_data.name, target.character_data.name, heal])
 			populate_party_ui(GameManage.party, backuppnode)
 	else:
@@ -386,9 +389,16 @@ func _clear_enemy_selection():
 		var row = enemy_list.get_child(i)
 		row.modulate = normal_color
 
-func show_damage_number(position: Vector2, amount: int):
-	DamageNumberScene.position = position
-	DamageNumberScene.show_damage(amount)
+func show_damage_number(position: Vector2, amount: int, color: Color = Color.WHITE):
+	if (DamageNumberScene == null):
+		DamageNumberScene = preload("res://scenes/battle/DamageNumber.tscn")
+		
+	var dmg_number = DamageNumberScene.instantiate()
+	if (battle_manager == null):
+		battle_manager = get_parent().get_node("BattleManager")
+	battle_manager.add_child(dmg_number)
+	dmg_number.global_position = position
+	dmg_number.show_damage(amount, color)
 
 func display_spells(member: Character):
 	selecting_magic = true
@@ -438,7 +448,6 @@ func display_spells(member: Character):
 				selecting_magic = false
 				if spell.type == "Heal":
 					#show_target_panel(member, spell)
-					print("Healing for %d." % Math.calculate_healing(member, spell))
 					populate_party_ui(GameManage.party, backuppnode)
 				if spell.type == "Damage":
 					populate_party_ui(GameManage.party, backuppnode)

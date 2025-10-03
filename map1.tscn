@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://djtlfxnf7mml0"]
+[gd_scene load_steps=42 format=3 uid="uid://djtlfxnf7mml0"]
 
 [ext_resource type="Script" uid="uid://cafgvlcb02wcl" path="res://scripts/map1.gd" id="1_3upl8"]
 [ext_resource type="Texture2D" uid="uid://dqsam2nwmpcte" path="res://tilesets/summer forest.png" id="2_8h5eg"]
@@ -21,6 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://bld4ema1nu26s" path="res://tilesets/Fantasy_Walls.png" id="10_n8pok"]
 [ext_resource type="PackedScene" uid="uid://ci5ksv5yl2aqb" path="res://scenes/chest.tscn" id="20_ednbn"]
 [ext_resource type="AudioStream" uid="uid://qdngs16m26hr" path="res://music/mus_ruins.ogg" id="20_jod3k"]
+[ext_resource type="Resource" uid="uid://tkmd5vadxtaj" path="res://items/Hi-Potion.tres" id="21_sruyg"]
+[ext_resource type="Resource" uid="uid://cpdxlo28fqtd5" path="res://items/weapons/ragnarok.tres" id="22_al02e"]
 [ext_resource type="PackedScene" uid="uid://088flvsn8pug" path="res://scenes/DialogueBox.tscn" id="22_fgdmh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sv6q8"]
@@ -3352,6 +3354,7 @@ sources/1 = SubResource("TileSetAtlasSource_cdjig")
 process_mode = 3
 y_sort_enabled = true
 script = ExtResource("1_3upl8")
+metadata/_edit_vertical_guides_ = [208.0, 208.0]
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_rt4j1")]
 visible = false
@@ -3421,7 +3424,15 @@ z_index = 4
 position = Vector2(237, -433)
 scale = Vector2(0.64, 0.64)
 
-[node name="Chest" parent="." instance=ExtResource("20_ednbn")]
+[node name="Chest1" parent="." instance=ExtResource("20_ednbn")]
+contains = ExtResource("21_sruyg")
+amount = 10
+
+[node name="Chest2" parent="." instance=ExtResource("20_ednbn")]
+position = Vector2(546, -279)
+chest_id = "chest_forest_2"
+contains = ExtResource("22_al02e")
+amount = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_jod3k")

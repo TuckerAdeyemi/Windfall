@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://di18u4m2s53a"]
+
+[ext_resource type="Script" uid="uid://b5wanpbx8ma8q" path="res://scenes/SaveMenu.gd" id="1_3rdf6"]
+[ext_resource type="StyleBox" uid="uid://cu0lw8ncmb2y4" path="res://scenes/test.tres" id="1_rjxmt"]
+[ext_resource type="Theme" uid="uid://diyvaysa2x4ao" path="res://scenes/battle_ui.tres" id="3_oq5sx"]
+
+[node name="SavePanel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_rjxmt")
+script = ExtResource("1_3rdf6")
+max_slots = 10
+
+[node name="SlotList" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -11.0
+offset_top = 168.0
+offset_right = 29.0
+offset_bottom = 208.0
+grow_horizontal = 2
+theme = ExtResource("3_oq5sx")

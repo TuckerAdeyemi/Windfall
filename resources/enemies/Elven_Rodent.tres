@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://piiavri67bxm"]
 
-[ext_resource type="AudioStream" uid="uid://cdawyry5j8dtj" path="res://music/battle.ogg" id="1_joyxc"]
 [ext_resource type="Resource" uid="uid://d3s2vmv53gfh2" path="res://scripts/ai/BasicAI.tres" id="1_qpjl4"]
-[ext_resource type="Script" uid="uid://c6wopjwnia1a" path="res://scripts/enemy.gd" id="2_6aq83"]
+[ext_resource type="Script" uid="uid://c6wopjwnia1a" path="res://scripts/resources/enemy.gd" id="2_6aq83"]
+[ext_resource type="AudioStream" uid="uid://dv5x1hhd5nipg" path="res://music/rudebuster_boss.ogg" id="2_k4flx"]
 [ext_resource type="Texture2D" uid="uid://ba4328khmnjii" path="res://assets/icons/dark.png" id="2_qxkpe"]
 
 [resource]
@@ -16,14 +16,20 @@ mp = 5
 max_mp = 5
 str = 6
 mag = 1
-spd = 4
+spd = 2
 def = 1
 res = 3
 luck = 1
 exp_given = 20
 money_total = 20
+items_given = {
+"Nothing": 1
+}
+items_stealable = {
+"Nothing": 1
+}
 sprite_path = "res://assets/sprites/enemy/windfall-first-monster.png"
-battle_theme = ExtResource("1_joyxc")
+battle_theme = ExtResource("2_k4flx")
 is_player = false
 ai_script = ExtResource("1_qpjl4")
 elemental_weaknesses = {
